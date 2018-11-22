@@ -35,8 +35,8 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT']=465
-app.config['MAIL_USERNAME']='pythonwithellie@gmail.com'
-app.config['MAIL_PASSWORD']='learnpython22'
+app.config['MAIL_USERNAME']='email'
+app.config['MAIL_PASSWORD']='password'
 app.config['MAIL_USE_TLS']=False
 app.config['MAIL_USE_SSL']=True
 mail = Mail(app)
@@ -683,7 +683,7 @@ def forgotten():
         user = User.query.filter_by(email=Email).first()
         if user is None:
             return render_template('forgotten.html',error="Your Account does not exist")
-        yag = yagmail.SMTP("pythonwithellie@gmail.com","learnpython22")
+        yag = yagmail.SMTP("email","password")
 
         Token=str(time.time())
         Token = generate_password_hash(Token.replace(".",""))
@@ -899,7 +899,7 @@ def user():
 #Send mail to myself from user
 @app.route("/mail",methods=["GET","POST"])
 def mail():
-    yag = yagmail.SMTP("pythonwithellie@gmail.com","learnpython22")
+    yag = yagmail.SMTP("email","password")
     name = request.form['name1']
     email = request.form["email1"]
     message1 = request.form["message"]
