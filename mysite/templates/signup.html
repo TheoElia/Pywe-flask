@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p{padding:10px;margin:30px;}
+            div{border:5px solid steelblue;padding:10px;margin:30px;color:#2c79b4;font-family:cambria}
+            li a {display:block;color:#FFFFFFF;padding:8px 16px 8px 16px;text-decoration:none;}
+
+        </style>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <title>Learn Python with Ellie: Sign up</title>
+        <script type="text/javascript" src="{{url_for('static',filename='page.js')}}">
+    </script>
+    </head>
+
+    <body style="background-color:lightgrey">
+
+
+
+        <h2><a style="text-align:center;margin-left:30%;font-family:cambria" href="/signup">Learn Python with Ellie: Sign up page</a></h2>
+                {% for message in form.name.errors %}
+        <br>
+        {{message}}
+<br>
+{% endfor %}
+        <br>
+
+                {% for message in form.email.errors %}
+        <br>
+
+        {{message}}
+        <br>
+
+{% endfor %}
+        <br>
+                {% if error %}
+<br>
+        {{message}}
+<br>
+        {% endif %}
+<div>
+
+ Having a conversation with your computer might sound like the script of
+a science fiction movie. After all, the members of the Enterprise on Star
+Trek regularly talked with their computer. In fact, the computer often talked
+back. However, with the rise of Apple’s Siri (http://www.apple.com/ios/
+siri/) and other interactive software, perhaps you really don’t find a
+    conversation so unbelievable.
+
+Asking the computer for information is one thing, but providing it with instructions is quite another. This website considers why you want to instruct your
+computer about anything and what benefit you gain from it. You also discover
+the need for a special language when performing this kind of communication
+and why you want to use <b><mark>Python</mark></b> to accomplish it. However, the main thing
+to get out of this site is that programming is simply a kind of communication that
+            is akin to other forms of communication you already have with your
+computer.
+</div>
+
+                <form action="/signup" method="POST"><fieldset>
+                    <legend>
+                        <h2 style="text-align:center;color:Blue;font-family:courier">
+                        Learn Python Signup Form
+                            </h2>
+                    </legend>
+                    <div>
+                    <ul>
+                    {{form.csrf_token}}
+
+                        {{form.name.label}}
+                        <li>
+                        {{form.name}}
+                        </li>
+                        {{form.csrf_token}}
+
+                        {{form.email.label}}
+<li>
+                        {{form.email}}
+                    </li>
+                        {{form.csrf_token}}
+
+                        {{form.password.label}}
+<li>
+                      {{form.password}}
+                    </li>
+                       {{form.csrf_token}}
+<li>
+                        {{form.submit}}
+                          </li>
+                        </ul>
+                </div>
+
+                </fieldset>
+
+
+                </form>
+
+                <p> Already have an account?
+                        <a style="align:center;align:center" href="/login/">Log in</a></p>
+
+
+    </body>
+</html>

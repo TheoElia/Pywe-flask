@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--===============================================
+      Template Design By WpFreeware Team.
+      Author URI : http://www.wpfreeware.com/
+    ====================================================-->
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>PywE : {{curlesson}}</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+
+    <!-- CSS
+    ================================================== -->
+    <!-- Bootstrap css file-->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file-->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Superslide css file-->
+    <link rel="stylesheet" href="static/css/superslides.css">
+    <!-- Slick slider css file -->
+    <link href="static/css/slick.css" rel="stylesheet">
+    <!-- Circle counter cdn css file -->
+    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
+    <!-- smooth animate css file -->
+    <link rel="stylesheet" href="static/css/animate.css">
+    <!-- preloader -->
+    <link rel="stylesheet" href="static/css/queryLoader.css" type="text/css" />
+    <!-- gallery slider css -->
+    <link type="text/css" media="all" rel="stylesheet" href="static/css/jquery.tosrus.all.css" />
+    <!-- Default Theme css file -->
+    <link id="switcher" href="static/css/themes/default-theme.css" rel="stylesheet">
+    <!-- Main structure css file -->
+    <link href="static/css/style1.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    h5,h4{color:#78adc9;}
+    code{color:green;}
+    pre{
+        font-size:110%;
+        background-color:black;
+        color:#00e5ffb3;
+    }
+    /*scrol to top*/
+
+.scrollToTop {
+  background: url("static/img/bootom-top-arrow.png") no-repeat scroll 13px 12px #ffffff;
+  border: 3px solid #f0f1f3;
+  border-radius: 5px;
+  bottom: 20px;
+  display: inline-block;
+  height: 54px;
+  opacity: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 54px;
+  z-index: 100;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+
+}
+.scrollToTop:hover{
+  background-position: 13px -50px;
+  text-decoration: none;
+  outline: none;
+}
+#imgBanner {
+  background-image: url("static/img/african.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline;
+  float: left;
+  height: 300px;
+  margin-top: 77px;
+  padding: 118px 0;
+  text-align: center;
+  width: 100%;
+}
+#imgBanner h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;}
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!--=========== BEGIN HEADER SECTION ================-->
+    <header id="header">
+      <!-- BEGIN MENU -->
+      <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container">
+          <div class="navbar-header">
+            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- LOGO -->
+            <!-- TEXT BASED LOGO -->
+            <a class="navbar-brand" href="index.html">PywE <span>{{curlesson}}</span></a>
+            <!-- IMG BASED LOGO  -->
+             <!-- <a class="navbar-brand" href="index.html"><img src="static/img/header-bg.jpg" alt="logo"></a>  -->
+
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+              <li><a href="/strings">Home</a></li>
+              <li><a href="/course">Course</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for each in Lesson %}
+                  <li><a href="/{{each}}">{{each}}</a></li>
+{% endfor %}
+                </ul>
+
+              </li>
+              <li><a href="/#contact-section">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+      </div>
+      <!-- END MENU -->
+    </header>
+    <!--=========== END HEADER SECTION ================-->
+
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="imgBanner">
+      <h2>{{curlesson}}</h2>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="courseArchive">
+      <div class="container">
+        <div class="row">
+          <!-- start course content -->
+          <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="courseArchive_content">
+              <!-- start blog archive  -->
+              <div class="row">
+                <!-- start single blog -->
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog">
+                    <div class="blogimg_container">
+                      <a href="#" class="blog_img">
+                        <img alt="img" src={{curpic}}>
+                      </a>
+                    </div>
+                    <h2 class="blog_title"><a href="blog-single.html">Python {{curlesson}}</a></h2>
+
+                    <p>
+                        Any code that you write using any compiled language like C, C++ or Java can be integrated or imported into another Python script. This code is considered as an "extension."
+A Python extension module is nothing more than a normal C library. On Unix machines, these libraries usually end in .so (for shared object). On Windows machines, you typically see .dll (for dynamically linked library).
+Pre-Requisite:
+To start writing your extension, you are going to need the Python header files.
+<ul>
+    <li>On Unix machines, this usually requires installing a developer-specific package such as python2.5-dev.</li>
+    <li>Windows users get these headers as part of the package when they use the binary Python installer.</li>
+</ul>
+    Additionally, it is assumed that you have good knowledge of C or C++ to write any Python Extension using C programming.
+First look at a Python extension:
+For your first look at a Python extension module, you'll be grouping your code into four parts:
+<ul>
+    <li>The header file Python.h.</li>
+    <li>The C functions you want to expose as the interface from your module.</li>
+    <li>A table mapping the names of your functions as Python developers will see them to C functions inside the extension module.</li>
+    <li>An initialization function.</li>
+    </ul>
+<h4>The header file Python.h</h4>
+Start including Python.h header file in your C source file, which will give you access to the internal Python API used to hook your module into the interpreter.
+Be sure to include Python.h before any other headers you might need. You'll follow the includes with the functions you want to call from Python.
+<h4>The C functions</h4>
+The signatures of the C implementations of your functions will always take one of the following three forms:
+<pre>
+    static PyObject *MyFunction( PyObject *self, PyObject *args );
+
+static PyObject *MyFunctionWithKeywords(PyObject *self,
+                                 PyObject *args,
+                                 PyObject *kw);
+
+static PyObject *MyFunctionWithNoArgs( PyObject *self );
+</pre>
+Each one of the preceding declarations returns a Python object. There's no such thing as a void function in Python as there is in C. If you don't want your functions to return a value, return
+the C equivalent of Python's None value. The Python headers define a macro, Py_RETURN_NONE, that does this for us.
+The names of your C functions can be whatever you like as they will never be seen outside of the extension module. So they would be defined as static function.
+Your C functions usually are named by combining the Python module and function names together, as shown here:
+<pre>
+static PyObject *module_func(PyObject *self, PyObject *args) {
+   /* Do your stuff here. */
+   Py_RETURN_NONE;
+}
+    </pre>
+This would be a Python function called func inside of the module module. You'll be putting pointers to your C functions
+the method table for the module that usually comes next in your source code.
+The method mapping table:
+This method table is a simple array of PyMethodDef structures. That structure looks something like this:
+<pre>
+struct PyMethodDef {
+   char *ml_name;
+   PyCFunction ml_meth;
+   int ml_flags;
+   char *ml_doc;
+};
+    </pre>
+Here is the description of the members of this structure:
+<ul>
+    <li>ml_name: This is the name of the function as the Python interpreter will present it when it is used in Python programs.</li>
+    <li>ml_meth: This must be the address to a function that has any one of the signatures described in previous section.</li>
+    <li>ml_flags: This tells the interpreter which of the three signatures ml_meth is using.</li>
+    <li>This flag will usually have a value of METH_VARARGS.</li>
+    <li>This flag can be bitwise or'ed with METH_KEYWORDS if you want to allow keyword arguments into your function.</li>
+    <li>This can also have a value of METH_NOARGS that indicates you don't want to accept any arguments.</li>
+    <li>ml_doc: This is the docstring for the function, which could be NULL if you don't feel like writing one</li>
+</ul>
+    This table needs to be terminated with a sentinel that consists of NULL and 0 values for the appropriate members.
+Example:
+
+For the above-defined function, we would have following method mapping table:
+<pre>
+static PyMethodDef module_methods[] = {
+   { "func", (PyCFunction)module_func, METH_NOARGS, NULL },
+   { NULL, NULL, 0, NULL }
+};
+    </pre>
+<h4>The initialization function</h4>
+The last part of your extension module is the initialization function. This function is called by the Python interpreter when the module is loaded.
+It's required that the function be named initModule, where Module is the name of the module.
+The initialization function needs to be exported from the library you'll be building. The Python headers define
+PyMODINIT_FUNC to include the appropriate incantations for that to happen for the particular environment in which we're compiling.
+All you have to do is use it when defining the function.
+Your C initialization function generally has the following overall structure:
+<pre>
+PyMODINIT_FUNC initModule() {
+   Py_InitModule3(func, module_methods, "docstring...");
+    </pre>
+Here is the description of Py_InitModule3function:
+<ul>
+    <li>module_methods: This is the mapping table name defined above.</li>
+    <li>docstring: This is the comment you want to give in your extension.</li>
+</ul>
+    Putting this all together looks like the following:
+<pre>
+#include <Python.h>
+
+static PyObject *module_func(PyObject *self, PyObject *args) {
+   /* Do your stuff here. */
+   Py_RETURN_NONE;
+}
+
+static PyMethodDef module_methods[] = {
+   { "func", (PyCFunction)module_func, METH_NOARGS, NULL },
+   { NULL, NULL, 0, NULL }
+};
+
+PyMODINIT_FUNC initModule() {
+   Py_InitModule3(func, module_methods, "docstring...");
+}
+    </pre>
+Example:
+A simple example that makes use of all the above concepts:
+<pre>
+#include <Python.h>
+
+static PyObject* helloworld(PyObject* self)
+{
+    return Py_BuildValue("s", "Hello, Python extensions!!");
+}
+
+static char helloworld_docs[] =
+    "helloworld( ): Any message you want to put here!!\n";
+
+static PyMethodDef helloworld_funcs[] = {
+    {"helloworld", (PyCFunction)helloworld,
+     METH_NOARGS, helloworld_docs},
+    {NULL}
+};
+
+void inithelloworld(void)
+{
+    Py_InitModule3("helloworld", helloworld_funcs,
+                   "Extension module example!");
+}
+    </pre>
+Here the Py_BuildValue function is used to build a Python value. Save above code in hello.c file. We would see how to compile and install this module to be called from Python script.
+<h4>Building and Installing Extensions</h4>
+The distutils package makes it very easy to distribute Python modules, both pure Python and extension modules, in a standard way. Modules are distributed in source form and built and installed via a setup script usually called setup.py as follows.
+For the above module, you would have to prepare following setup.py script:
+from distutils.core import setup, Extension
+<pre>
+setup(name='helloworld', version='1.0',  \
+      ext_modules=[Extension('helloworld', ['hello.c'])])
+</pre>
+    Now, use the following command, which would perform all needed compilation and linking steps, with the right compiler and linker commands and flags, and copies the resulting dynamic library into an appropriate directory:
+$ python setup.py install
+On Unix-based systems, you'll most likely need to run this command as root in order to have permissions to write to the site-packages directory. This usually isn't a problem on Windows
+<h4>Import Extensions</h4>
+Once you installed your extension, you would be able to import and call that extension in your Python script as follows:
+<pre>
+import helloworld
+
+print helloworld.helloworld()
+</pre>
+    This would produce the following result:
+<pre>
+Hello, Python extensions!!
+</pre>
+<h4>Passing Function Parameters</h4>
+Because you'll most likely want to define functions that do accept arguments, you can use one of the other signatures for your C functions. For example, following function, that accepts some number of parameters, would be defined like this:
+<pre>
+static PyObject *module_func(PyObject *self, PyObject *args) {
+   /* Parse args and do something interesting here. */
+   Py_RETURN_NONE;
+}
+    </pre>
+The method table containing an entry for the new function would look like this:
+<pre>
+static PyMethodDef module_methods[] = {
+   { "func", (PyCFunction)module_func, METH_NOARGS, NULL },
+   { "func", module_func, METH_VARARGS, NULL },
+   { NULL, NULL, 0, NULL }
+};
+    </pre>
+
+You can use API PyArg_ParseTuple function to extract the arguments from the one PyObject pointer passed into your C function.
+The first argument to PyArg_ParseTuple is the args argument. This is the object you'll be parsing. The second argument is a format string describing the arguments as you expect them to appear. Each argument is represented by one or more characters in the format string as follows.
+<pre>
+static PyObject *module_func(PyObject *self, PyObject *args) {
+   int i;
+   double d;
+   char *s;
+
+   if (!PyArg_ParseTuple(args, "ids", &i, &d, &s)) {
+      return NULL;
+   }
+
+   /* Do something interesting here. */
+   Py_RETURN_NONE;
+}
+    </pre>
+Compiling the new version of your module and importing it will enable you to invoke the new function with any number of arguments of any type:
+<pre>
+module.func(1, s="three", d=2.0)
+module.func(i=1, d=2.0, s="three")
+module.func(s="three", d=2.0, i=1)
+</pre>
+    You can probably come up with even more variations.
+<h4>The PyArg_ParseTupleFunction</h4>
+Here is the standard signature for PyArg_ParseTuple function:
+<pre>
+int PyArg_ParseTuple(PyObject* tuple,char* format,...)
+</pre>
+    This function returns 0 for errors, and a value not equal to 0 for success. tuple is the PyObject* that was the C function's second argument. Here format is a C string that describes mandatory and optional arguments.
+Here is a list of format codes for PyArg_ParseTuple function:
+<pre>
+
+    Code	C type	    Meaning
+
+    c	    char	    A Python string of length 1 becomes a C char.
+
+    d	    double	    A Python float becomes a C double.
+
+    f	    float	    A Python float becomes a C float.
+
+    i	    int	        A Python int becomes a C int.
+
+    l	    long	    A Python int becomes a C long.
+
+    L	    long long	A Python int becomes a C long long
+
+    O	    PyObject*	Gets non-NULL borrowed reference to Python argument.
+
+    s	    char*	    Python string without embedded nulls to C char*.
+
+    s#	    char*+int	Any Python string to C address and length.
+
+    t#	    char*+int	Read-only single-segment buffer to C address and length.
+
+    u	Py_UNICODE*	    Python Unicode without embedded nulls to C.
+
+    u#	Py_UNICODE*+int	Any Python Unicode C address and length.
+
+    w#	char*+int	    Read/write single-segment buffer to C address and length.
+
+    z	char*	        Like s, also accepts None (sets C char* to NULL).
+
+    z#	char*+int	    Like s#, also accepts None (sets C char* to NULL).
+
+    (...)	as per ...	A Python sequence is treated as one argument per item.
+|	 	The following arguments are optional.
+:	 	Format end, followed by function name for error messages.
+;	 	Format end, followed by entire error message text.
+</pre>
+<h4>Returning Values</h4>
+Py_BuildValue takes in a format string much like PyArg_ParseTuple does. Instead of passing in the addresses of the values you're building, you pass in the actual values. Here's an example showing how to implement an add function:
+<pre>
+static PyObject *foo_add(PyObject *self, PyObject *args) {
+   int a;
+   int b;
+
+   if (!PyArg_ParseTuple(args, "ii", &a, &b)) {
+      return NULL;
+   }
+   return Py_BuildValue("i", a + b);
+}
+</pre>
+This is what it would look like if implemented in Python:
+    <pre>
+    def add(a, b):
+        return (a + b)
+    </pre>
+You can return two values from your function as follows, this would be cauptured using a list in Python.
+<pre>
+    static PyObject *foo_add_subtract(PyObject *self, PyObject *args) {
+        int a;
+        int b;
+
+    if (!PyArg_ParseTuple(args, "ii", &a, &b)) {
+          return NULL;
+    }
+        return Py_BuildValue("ii", a + b, a - b);
+    }
+    </pre>
+This is what it would look like if implemented in Python:
+    <pre>
+def add_subtract(a, b):
+   return (a + b, a - b)
+    </pre>
+    <h4>The Py_BuildValue Function</h4>
+Here is the standard signature for Py_BuildValue function:
+    <pre>
+PyObject* Py_BuildValue(char* format,...)
+    </pre>
+Here format is a C string that describes the Python object to build. The following arguments of Py_BuildValue are C values from which the result is built. The PyObject* result is a new reference.
+Following table lists the commonly used code strings, of which zero or more are joined into string format.
+<pre>
+    Code	C type	    Meaning
+
+    c	    char	    A C char becomes a Python string of length 1.
+
+    d	    double	    A C double becomes a Python float.
+
+    f	    float	    A C float becomes a Python float.
+
+    i	    int	        A C int becomes a Python int.
+
+    l	    long	    A C long becomes a Python int.
+
+    N	    PyObject*	Passes a Python object and steals a reference.
+
+    O	    PyObject*	Passes a Python object and INCREFs it as normal.
+
+    O&	    convert+void*	Arbitrary conversion
+
+    s	    char*	    C 0-terminated char* to Python string, or NULL to None.
+
+    s#	    char*+int	C char* and length to Python string, or NULL to None.
+
+    u	    Py_UNICODE*	C-wide, null-terminated string to Python Unicode, or NULL to None.
+
+    u#	    Py_UNICODE*+int	C-wide string and length to Python Unicode, or NULL to None.
+
+    w#	    char*+int	Read/write single-segment buffer to C address and length.
+
+    z	    char*	Like s, also accepts None (sets C char* to NULL).
+
+    z#	    char*+int	Like s#, also accepts None (sets C char* to NULL).
+
+    (...)	as per ...	Builds Python tuple from C values.
+
+    [...]	as per ...	Builds Python list from C values.
+
+    {...}	as per ...	Builds Python dictionary from C values, alternating keys and values.
+
+    Code {...} builds dictionaries from an even number of C values, alternately keys and values. For example, Py_BuildValue("{issi}",23,"zig","zag",42) returns a dictionary like Python's {23:'zig','zag':42}.
+</pre>
+</p>
+
+                  </div>
+                  <!-- single blog nex & prev button -->
+                  <div class="single_blog_prevnext">
+                    <a class="prev_post wow fadeInLeft" href="/{{prevlesson}}"><i class="fa fa-angle-left"></i>{{prevlesson}}</a>
+                    <a class="next_post wow fadeInRight" href="/{{nxtlesson}}">{{nxtlesson}}<i class="fa fa-angle-right"></i></a>
+                  </div>
+                </div>
+                <!-- End single blog -->
+              </div>
+              <!-- end blog archive  -->
+              <!-- start related post -->
+              <div class="related_post">
+                <h2>Other Data Types</h2>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="single_blog_archive wow fadeInUp">
+                      <div class="blogimg_container">
+                        <a class="blog_img" href="/{{prevlesson}}">
+                          <img src={{prevpic}} alt="img">
+                        </a>
+                      </div>
+                      <h2 class="blog_title"><a href="/{{prevlesson}}">Python {{prevlesson}}</a></h2>
+
+                      <p class="blog_summary">{{prevtext}}</p>
+                      <a href="/{{prevlesson}}" class="blog_readmore">Read More</a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="single_blog_archive wow fadeInUp">
+                      <div class="blogimg_container">
+                        <a class="blog_img" href="/{{nxtlesson}}">
+                          <img src={{nxtpic}} alt="img">
+                        </a>
+                      </div>
+                      <h2 class="blog_title"><a href="/{{nxtlesson}}"> Python {{nxtlesson}}</a></h2>
+                      <div class="blog_commentbox">
+
+                      </div>
+                      <p class="blog_summary">{{nxttext}}</p>
+                      <a href="/{{nxtlesson}}" class="blog_readmore">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- start related post -->
+            </div>
+          </div>
+          <!-- End course content -->
+
+          <!-- start course archive sidebar -->
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="courseArchive_sidebar">
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Python Tricks <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="news_tab">
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Python for android</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Use Python to...</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Python can also...</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Category <span class="fa fa-angle-double-right"></span></h2>
+                <ul>
+                  <li><a href="#">Food</a></li>
+                  <li><a href="#">Technology</a></li>
+                  <li><a href="#">Fashion</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Games</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Tags <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="tags_nav">
+                  <li><a href="#"><i class="fa fa-tags"></i>Creative</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>News</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Technology</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Art</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Audio</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>video</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Sponsor Add(In stock) <span class="fa fa-angle-double-right"></span></h2>
+                <a class="side_add" href="#"><img src={{adpic}} alt="img" width={{width}} height={{height}}><span class="fa fa-whatsapp"></span>+233203592400</a></br>
+                Tel : +233203592400</br>
+              </div>
+              <!-- End single sidebar -->
+
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Sponsor Add(In stock) <span class="fa fa-angle-double-right"></span></h2>
+                <a class="side_add" href="#"><img src={{adpic2}} alt="img" width={{width}} height={{height}}><span class="fa fa-whatsapp"></span>+233203592400</a></br>
+                Tel : +233203592400</br>
+              </div>
+              <!-- End single sidebar -->
+            </div>
+          </div>
+          <!-- start course archive sidebar -->
+        </div>
+      </div>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    <!--=========== BEGIN FOOTER SECTION ================-->
+    <footer id="footer">
+      <!-- Start footer top area -->
+      <div class="footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>About Us</h3>
+                <p>Learn Python from scratch with PywE.</p>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Community</h3>
+                <ul class="footer_widget_nav">
+                  <li><a href="#">Our Tutors</a></li>
+                  <li><a href="#">Our Students</a></li>
+                  <li><a href="#">Our Team</a></li>
+                  <li><a href="#">Forum</a></li>
+                  <li><a href="#">News &amp; Media</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Others</h3>
+                <ul class="footer_widget_nav">
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                  <li><a href="#">Link 4</a></li>
+                  <li><a href="#">Link 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Social Links</h3>
+                <ul class="footer_social">
+                  <li><a data-toggle="tooltip" data-placement="top" title="PywE on Fb" class="soc_tooltip" href="https://www.facebook.com/pg/pythonwithellie/"><i class="fa fa-facebook"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Twitter" class="soc_tooltip"  href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Google+" class="soc_tooltip"  href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Linkedin" class="soc_tooltip"  href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Youtube" class="soc_tooltip"  href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer top area -->
+
+      <!-- Start footer bottom area -->
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="footer_bootomLeft">
+                <p> Copyright &copy; All Rights Reserved</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="footer_bootomRight">
+                <p>Adapted by <a href="https://www.facebook.com/pg/pythonwithellie/" rel="nofollow">PywE</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer bottom area -->
+    </footer>
+    <!--=========== END FOOTER SECTION ================-->
+
+
+
+    <!-- Javascript Files
+    ================================================== -->
+
+    <!-- initialize jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Preloader js file -->
+    <script src="static/js/queryloader2.min.js" type="text/javascript"></script>
+    <!-- For smooth animatin  -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="static/js/slick.min.js"></script>
+    <!-- superslides slider -->
+    <script src="static/js/jquery.easing.1.3.js"></script>
+    <script src="static/js/jquery.animate-enhanced.min.js"></script>
+    <script src="static/js/jquery.superslides.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- for circle counter -->
+    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+    <!-- Gallery slider -->
+    <script type="text/javascript" language="javascript" src="static/js/jquery.tosrus.min.all.js"></script>
+
+    <!-- Custom js-->
+    <script src="static/js/custom.js"></script>
+
+  <!--===============================================
+    Template Design By WpFreeware Team.
+    Author URI : http://www.wpfreeware.com/
+  ====================================================-->
+
+  </body>
+</html>

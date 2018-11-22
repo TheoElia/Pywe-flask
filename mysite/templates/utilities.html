@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--===============================================
+      Template Design By WpFreeware Team.
+      Author URI : http://www.wpfreeware.com/
+    ====================================================-->
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>PywE : {{curlesson}}</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+
+    <!-- CSS
+    ================================================== -->
+    <!-- Bootstrap css file-->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file-->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Superslide css file-->
+    <link rel="stylesheet" href="static/css/superslides.css">
+    <!-- Slick slider css file -->
+    <link href="static/css/slick.css" rel="stylesheet">
+    <!-- Circle counter cdn css file -->
+    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
+    <!-- smooth animate css file -->
+    <link rel="stylesheet" href="static/css/animate.css">
+    <!-- preloader -->
+    <link rel="stylesheet" href="static/css/queryLoader.css" type="text/css" />
+    <!-- gallery slider css -->
+    <link type="text/css" media="all" rel="stylesheet" href="static/css/jquery.tosrus.all.css" />
+    <!-- Default Theme css file -->
+    <link id="switcher" href="static/css/themes/default-theme.css" rel="stylesheet">
+    <!-- Main structure css file -->
+    <link href="static/css/style1.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    h5,h4{color:#78adc9;}
+    code{color:green;}
+    pre{
+        font-size:110%;
+        background-color:black;
+        color:#00e5ffb3;
+    }
+    /*scrol to top*/
+
+.scrollToTop {
+  background: url("static/img/bootom-top-arrow.png") no-repeat scroll 13px 12px #ffffff;
+  border: 3px solid #f0f1f3;
+  border-radius: 5px;
+  bottom: 20px;
+  display: inline-block;
+  height: 54px;
+  opacity: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 54px;
+  z-index: 100;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+
+}
+.scrollToTop:hover{
+  background-position: 13px -50px;
+  text-decoration: none;
+  outline: none;
+}
+#imgBanner {
+  background-image: url("static/img/african.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline;
+  float: left;
+  height: 300px;
+  margin-top: 77px;
+  padding: 118px 0;
+  text-align: center;
+  width: 100%;
+}
+#imgBanner h2 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;}
+
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!--=========== BEGIN HEADER SECTION ================-->
+    <header id="header">
+      <!-- BEGIN MENU -->
+      <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container">
+          <div class="navbar-header">
+            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- LOGO -->
+            <!-- TEXT BASED LOGO -->
+            <a class="navbar-brand" href="index.html">PywE <span>{{curlesson}}</span></a>
+            <!-- IMG BASED LOGO  -->
+             <!-- <a class="navbar-brand" href="index.html"><img src="static/img/header-bg.jpg" alt="logo"></a>  -->
+
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+              <li><a href="/strings">Home</a></li>
+              <li><a href="/course">Course</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for each in Lesson %}
+                  <li><a href="/{{each}}">{{each}}</a></li>
+{% endfor %}
+                </ul>
+
+              </li>
+              <li><a href="/#contact-section">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+      </div>
+      <!-- END MENU -->
+    </header>
+    <!--=========== END HEADER SECTION ================-->
+
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="imgBanner">
+      <h2>{{curlesson}}</h2>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="courseArchive">
+      <div class="container">
+        <div class="row">
+          <!-- start course content -->
+          <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="courseArchive_content">
+              <!-- start blog archive  -->
+              <div class="row">
+                <!-- start single blog -->
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog">
+                    <div class="blogimg_container">
+                      <a href="#" class="blog_img">
+                        <img alt="img" src={{curpic}}>
+                      </a>
+                    </div>
+                    <h2 class="blog_title"><a href="blog-single.html">Python {{curlesson}}</a></h2>
+
+                    <p>
+                        The standard library comes with a number of modules that can be used both as modules and as command-line utilities.
+The dis Module:
+The dis module is the Python disassembler. It converts byte codes to a format that is slightly more appropriate for human consumption.
+You can run the disassembler from the command line. It compiles the given script and prints the disassembled byte codes to the STDOUT. You can also use dis as a module. The dis function takes a class, method, function or code object as its single argument.
+Example:
+<pre>
+import dis
+
+def sum():
+   vara = 10
+   varb = 20
+
+   sum = vara + varb
+   print "vara + varb = %d" % sum
+
+# Call dis function for the function.
+
+dis.dis(sum)
+</pre>
+
+This would produce the following result:
+    <pre>
+  6           0 LOAD_CONST               1 (10)
+              3 STORE_FAST               0 (vara)
+
+  7           6 LOAD_CONST               2 (20)
+              9 STORE_FAST               1 (varb)
+
+  9          12 LOAD_FAST                0 (vara)
+             15 LOAD_FAST                1 (varb)
+             18 BINARY_ADD
+             19 STORE_FAST               2 (sum)
+
+ 10          22 LOAD_CONST               3 ('vara + varb = %d')
+             25 LOAD_FAST                2 (sum)
+             28 BINARY_MODULO
+             29 PRINT_ITEM
+             30 PRINT_NEWLINE
+             31 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+</pre>
+    <h4>The pdb Module</h4>
+The pdb module is the standard Python debugger. It is based on the bdb debugger framework.
+You can run the debugger from the command line (type n [or next] to go to the next line and help to get a list of available commands):
+Example:
+Before you try to run pdb.py, set your path properly to Python lib directory. So let us try with above example sum.py:
+$pdb.py sum.py
+    <pre>
+> /test/sum.py(3)<module>()
+-> import dis
+(Pdb) n
+> /test/sum.py(5)<module>()
+-> def sum():
+(Pdb) n
+>/test/sum.py(14)<module>()
+-> dis.dis(sum)
+(Pdb) n
+  6           0 LOAD_CONST               1 (10)
+              3 STORE_FAST               0 (vara)
+
+  7           6 LOAD_CONST               2 (20)
+              9 STORE_FAST               1 (varb)
+
+  9          12 LOAD_FAST                0 (vara)
+             15 LOAD_FAST                1 (varb)
+             18 BINARY_ADD
+             19 STORE_FAST               2 (sum)
+
+ 10          22 LOAD_CONST               3 ('vara + varb = %d')
+             25 LOAD_FAST                2 (sum)
+             28 BINARY_MODULO
+             29 PRINT_ITEM
+             30 PRINT_NEWLINE
+             31 LOAD_CONST               0 (None)
+             34 RETURN_VALUE
+--Return--
+> /test/sum.py(14)<module>()->None
+-v dis.dis(sum)
+(Pdb) n
+--Return--
+> <string>(1)<module>()->None
+(Pdb)
+    </pre>
+    <h4>The profile Module</h4>
+The profile module is the standard Python profiler. You can run the profiler from the command line:
+Example:
+Let us try to profile the following program:
+
+<pre>
+vara = 10
+varb = 20
+
+sum = vara + varb
+print "vara + varb = %d" % sum
+Now, try running cProfile.py over this file sum.pyas follows:
+$cProfile.py sum.py
+vara + varb = 30
+         4 function calls in 0.000 CPU seconds
+
+   Ordered by: standard name
+
+ncalls  tottime  percall  cumtime  percall filename:lineno
+   1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+   1    0.000    0.000    0.000    0.000 sum.py:3(<module>)
+   1    0.000    0.000    0.000    0.000 {execfile}
+   1    0.000    0.000    0.000    0.000 {method ......}
+</pre>
+    <h4>The tabnanny Module</h4>
+The tabnanny module checks Python source files for ambiguous indentation. If a file mixes tabs and spaces in a way that throws off indentation, no matter what tab size you're using, the nanny complains:
+Example:
+Let us try to profile the following program:
+
+<pre>
+vara = 10
+varb = 20
+
+sum = vara + varb
+print "vara + varb = %d" % sum
+    </pre>
+If you would try a correct file with tabnanny.py, then it won't complain as follows:
+    <pre>
+$tabnanny.py -v sum.py
+'sum.py': Clean bill of health.
+</pre>
+<h4>Other Python Utils</h4>
+There exist a lot of frameworks for Python programming that you can utilise to make your work easier. Search the internet
+for modules before writing your own in order to cut short the time spent developing. Other programmers have made available many utilities
+in the forms of frameworks, modules and extensions.
+Such frameworks, extensions, modules.., include; to mention but a few:
+<ul>
+    <li>Flask (For web application development)</li>
+    <li>Django (Web Application development)</li>
+    <li>sl4a (Python's Scripting layer 4 Android)</li>
+    <li>Numpy (Numerical Python for your mathematical algorithms)</li>
+    <li>Scipy</li>
+    <li>Matplotlib (For Plotting beautiful and analytical graphs)</li>
+    <li>Beautiful Soup</li>
+    <li>Pandas</li>
+</ul>
+These are but a few of the great tools available.Read on these to extend your programming experience in Python.
+<h4>Send us Feedback</h4>
+Thank you for journeying with PywE. We will like to get some feedback from you in order to improve our future courses
+and even the one you took for those coming in.
+<a style="color:blue;" href="learn.pythonanywhere.com/#contact-section">Send us feedback>>> </a>.
+
+</p>
+
+                  </div>
+                  <!-- single blog nex & prev button -->
+                  <div class="single_blog_prevnext">
+                    <a class="prev_post wow fadeInLeft" href="/{{prevlesson}}"><i class="fa fa-angle-left"></i>{{prevlesson}}</a>
+                    <a class="next_post wow fadeInRight" href="/{{nxtlesson}}">{{nxtlesson}}<i class="fa fa-angle-right"></i></a>
+                  </div>
+                </div>
+                <!-- End single blog -->
+              </div>
+              <!-- end blog archive  -->
+              <!-- start related post -->
+              <div class="related_post">
+                <h2>Other Data Types</h2>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="single_blog_archive wow fadeInUp">
+                      <div class="blogimg_container">
+                        <a class="blog_img" href="/{{prevlesson}}">
+                          <img src={{prevpic}} alt="img">
+                        </a>
+                      </div>
+                      <h2 class="blog_title"><a href="/{{prevlesson}}">Python {{prevlesson}}</a></h2>
+
+                      <p class="blog_summary">{{prevtext}}</p>
+                      <a href="/{{prevlesson}}" class="blog_readmore">Read More</a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="single_blog_archive wow fadeInUp">
+                      <div class="blogimg_container">
+                        <a class="blog_img" href="/{{nxtlesson}}">
+                          <img src={{nxtpic}} alt="img">
+                        </a>
+                      </div>
+                      <h2 class="blog_title"><a href="/{{nxtlesson}}"> Python {{nxtlesson}}</a></h2>
+                      <div class="blog_commentbox">
+
+                      </div>
+                      <p class="blog_summary">{{nxttext}}</p>
+                      <a href="/{{nxtlesson}}" class="blog_readmore">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- start related post -->
+            </div>
+          </div>
+          <!-- End course content -->
+
+          <!-- start course archive sidebar -->
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="courseArchive_sidebar">
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Python Tricks <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="news_tab">
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Python for android</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Use Python to...</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Python can also...</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Category <span class="fa fa-angle-double-right"></span></h2>
+                <ul>
+                  <li><a href="#">Food</a></li>
+                  <li><a href="#">Technology</a></li>
+                  <li><a href="#">Fashion</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Games</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Tags <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="tags_nav">
+                  <li><a href="#"><i class="fa fa-tags"></i>Creative</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>News</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Technology</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Art</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Audio</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>video</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Sponsor Add(In stock) <span class="fa fa-angle-double-right"></span></h2>
+                <a class="side_add" href="#"><img src={{adpic}} alt="img" width={{width}} height={{height}}><span class="fa fa-whatsapp"></span>+233203592400</a></br>
+                Tel : +233203592400</br>
+              </div>
+              <!-- End single sidebar -->
+
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Sponsor Add(In stock) <span class="fa fa-angle-double-right"></span></h2>
+                <a class="side_add" href="#"><img src={{adpic2}} alt="img" width={{width}} height={{height}}><span class="fa fa-whatsapp"></span>+233203592400</a></br>
+                Tel : +233203592400</br>
+              </div>
+              <!-- End single sidebar -->
+            </div>
+          </div>
+          <!-- start course archive sidebar -->
+        </div>
+      </div>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    <!--=========== BEGIN FOOTER SECTION ================-->
+    <footer id="footer">
+      <!-- Start footer top area -->
+      <div class="footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>About Us</h3>
+                <p>Learn Python from scratch with PywE.</p>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Community</h3>
+                <ul class="footer_widget_nav">
+                  <li><a href="#">Our Tutors</a></li>
+                  <li><a href="#">Our Students</a></li>
+                  <li><a href="#">Our Team</a></li>
+                  <li><a href="#">Forum</a></li>
+                  <li><a href="#">News &amp; Media</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Others</h3>
+                <ul class="footer_widget_nav">
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                  <li><a href="#">Link 4</a></li>
+                  <li><a href="#">Link 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Social Links</h3>
+                <ul class="footer_social">
+                  <li><a data-toggle="tooltip" data-placement="top" title="PywE on Fb" class="soc_tooltip" href="https://www.facebook.com/pg/pythonwithellie/"><i class="fa fa-facebook"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Twitter" class="soc_tooltip"  href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Google+" class="soc_tooltip"  href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Linkedin" class="soc_tooltip"  href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Youtube" class="soc_tooltip"  href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer top area -->
+
+      <!-- Start footer bottom area -->
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="footer_bootomLeft">
+                <p> Copyright &copy; All Rights Reserved</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="footer_bootomRight">
+                <p>Adapted by <a href="https://www.facebook.com/pg/pythonwithellie/" rel="nofollow">PywE</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer bottom area -->
+    </footer>
+    <!--=========== END FOOTER SECTION ================-->
+
+
+
+    <!-- Javascript Files
+    ================================================== -->
+
+    <!-- initialize jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Preloader js file -->
+    <script src="static/js/queryloader2.min.js" type="text/javascript"></script>
+    <!-- For smooth animatin  -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="static/js/slick.min.js"></script>
+    <!-- superslides slider -->
+    <script src="static/js/jquery.easing.1.3.js"></script>
+    <script src="static/js/jquery.animate-enhanced.min.js"></script>
+    <script src="static/js/jquery.superslides.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- for circle counter -->
+    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+    <!-- Gallery slider -->
+    <script type="text/javascript" language="javascript" src="static/js/jquery.tosrus.min.all.js"></script>
+
+    <!-- Custom js-->
+    <script src="static/js/custom.js"></script>
+
+  <!--===============================================
+    Template Design By WpFreeware Team.
+    Author URI : http://www.wpfreeware.com/
+  ====================================================-->
+
+  </body>
+</html>

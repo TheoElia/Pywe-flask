@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--===============================================
+      Template Design By WpFreeware Team.
+      Author URI : http://www.wpfreeware.com/
+    ====================================================-->
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>PywE : {{curlesson}}</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+
+    <!-- CSS
+    ================================================== -->
+    <!-- Bootstrap css file-->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file-->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Superslide css file-->
+    <link rel="stylesheet" href="static/css/superslides.css">
+    <!-- Slick slider css file -->
+    <link href="static/css/slick.css" rel="stylesheet">
+    <!-- Circle counter cdn css file -->
+    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>
+    <!-- smooth animate css file -->
+    <link rel="stylesheet" href="static/css/animate.css">
+    <!-- preloader -->
+    <link rel="stylesheet" href="static/css/queryLoader.css" type="text/css" />
+    <!-- gallery slider css -->
+    <link type="text/css" media="all" rel="stylesheet" href="static/css/jquery.tosrus.all.css" />
+    <!-- Default Theme css file -->
+    <link id="switcher" href="static/css/themes/default-theme.css" rel="stylesheet">
+    <!-- Main structure css file -->
+    <link href="static/css/style1.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    h5,h4{color:#78adc9;}
+    code{color:green;}
+    pre{
+        font-size:110%;
+        background-color:black;
+        color:#00e5ffb3;
+    }
+    /*scrol to top*/
+
+.scrollToTop {
+  background: url("static/img/bootom-top-arrow.png") no-repeat scroll 13px 12px #ffffff;
+  border: 3px solid #f0f1f3;
+  border-radius: 5px;
+  bottom: 20px;
+  display: inline-block;
+  height: 54px;
+  opacity: 0;
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  width: 54px;
+  z-index: 100;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+
+}
+.scrollToTop:hover{
+  background-position: 13px -50px;
+  text-decoration: none;
+  outline: none;
+}
+#imgBanner {
+  background-image: url("static/img/african.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline;
+  float: left;
+  height: 300px;
+  margin-top: 77px;
+  padding: 118px 0;
+  text-align: center;
+  width: 100%;
+}
+#imgBanner h2 {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;}
+
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!--=========== BEGIN HEADER SECTION ================-->
+    <header id="header">
+      <!-- BEGIN MENU -->
+      <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div class="container">
+          <div class="navbar-header">
+            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- LOGO -->
+            <!-- TEXT BASED LOGO -->
+            <a class="navbar-brand" href="index.html">PywE <span>{{curlesson}}</span></a>
+            <!-- IMG BASED LOGO  -->
+             <!-- <a class="navbar-brand" href="index.html"><img src="static/img/header-bg.jpg" alt="logo"></a>  -->
+
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+              <li><a href="/strings">Home</a></li>
+              <li><a href="/course">Course</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    {% for each in Lesson %}
+                  <li><a href="/{{each}}">{{each}}</a></li>
+{% endfor %}
+                </ul>
+
+              </li>
+              <li><a href="/#contact-section">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+      </div>
+      <!-- END MENU -->
+    </header>
+    <!--=========== END HEADER SECTION ================-->
+
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="imgBanner">
+      <h2>{{curlesson}}</h2>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="courseArchive">
+      <div class="container">
+        <div class="row">
+          <!-- start course content -->
+          <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="courseArchive_content">
+              <!-- start blog archive  -->
+              <div class="row">
+                <!-- start single blog -->
+                <div class="col-lg-12 col-12 col-sm-12">
+                  <div class="single_blog">
+                    <div class="blogimg_container">
+                      <a href="#" class="blog_img">
+                        <img alt="img" src={{curpic}}>
+                      </a>
+                    </div>
+                    <h2 class="blog_title"><a href="blog-single.html">Python {{curlesson}}</a></h2>
+
+                    <p>
+                        A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings, using a specialized syntax held in a pattern.
+Regular expressions are widely used in UNIX world.
+The module re provides full support for Perl-like regular expressions in Python. The re module raises the exception
+re.error if an error occurs while compiling or using a regular expression.
+We would cover two important functions, which would be used to handle regular expressions. But a small thing first:
+There are various characters, which would have special meaning when they are used in regular expression. To avoid any
+confusion while dealing with regular expressions, we would use Raw Strings as r'expression'.
+<h4>The match Function</h4>
+This function attempts to match RE pattern to string with optional flags.
+Here is the syntax for this function:
+re.match(pattern, string, flags=0)
+Here is the description of the parameters:
+<pre>
+
+    Parameter	    Description
+
+    pattern	        This is the regular expression to be matched.
+
+    string	        This is the string, which would be searched to match
+                    the pattern at the beginning of string.
+
+    flags	        You can specify different flags using bitwise OR (|).
+                    These are modifiers, which are listed in the table below.
+</pre>
+The re.match function returns a match object on success, None on failure. We would use group(num) or groups() function of match object to get matched expression.
+<pre>
+
+    Match Object Methods	Description
+
+    group(num=0)	        This method returns entire match (or specific subgroup num)
+
+    groups()	            This method returns all matching subgroups in a tuple (empty if there weren't any)
+</pre>
+    <h4>Example</h4>
+<pre>
+import re
+
+line = "Cats are smarter than dogs"
+
+matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I)
+
+if matchObj:
+   print "matchObj.group() : ", matchObj.group()
+   print "matchObj.group(1) : ", matchObj.group(1)
+   print "matchObj.group(2) : ", matchObj.group(2)
+else:
+   print "No match!!"
+When the above code is executed, it produces following result:
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+</pre>
+<h4>The search Function</h4>
+This function searches for first occurrence of RE pattern within string with optional flags.
+Here is the syntax for this function:
+<pre>re.search(pattern, string, flags=0)</pre>
+
+    Here is the description of the parameters:
+<pre>
+    Parameter	    Description
+    pattern	        This is the regular expression to be matched.
+    string	        This is the string, which would be searched to
+                    match the pattern anywhere in the string.
+    flags	        You can specify different flags using bitwise OR (|).
+                    These are modifiers, which are listed in the table below.
+</pre>
+The re.search function returns a match object on success, None on failure. We would use group(num) or groups() function of match object to get matched expression.
+<pre>
+Match Object Methods	Description
+group(num=0)	        This method returns entire match (or specific subgroup num)
+groups()	            This method returns all matching subgroups in a tuple (empty if there weren't any)
+</pre>
+    Example:
+<pre>
+import re
+
+line = "Cats are smarter than dogs";
+
+searchObj = re.search( r'(.*) are (.*?) .*', line, re.M|re.I)
+
+if searchObj:
+   print "searchObj.group() : ", searchObj.group()
+   print "searchObj.group(1) : ", searchObj.group(1)
+   print "searchObj.group(2) : ", searchObj.group(2)
+else:
+   print "Nothing found!!"
+When the above code is executed, it produces following result:
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+</pre>
+<h4>Matching vs Searching</h4>
+Python offers two different primitive operations based on regular expressions: match checks for a match only at the beginning of the string,
+while search checks for a match anywhere in the string (this is what Perl does by default).
+Example:
+<pre>
+import re
+
+line = "Cats are smarter than dogs";
+
+matchObj = re.match( r'dogs', line, re.M|re.I)
+if matchObj:
+   print "match --> matchObj.group() : ", matchObj.group()
+else:
+   print "No match!!"
+
+searchObj = re.search( r'dogs', line, re.M|re.I)
+if searchObj:
+   print "search --> searchObj.group() : ", searchObj.group()
+else:
+   print "Nothing found!!"
+When the above code is executed, it produces the following result:
+No match!!
+search --> matchObj.group() :  dogs
+</pre>
+<h4>Search and Replace</h4>
+Some of the most important re methods that use regular expressions is sub.
+<h4>Syntax</h4>
+<pre>
+re.sub(pattern, repl, string, max=0)
+</pre>
+    This method replaces all occurrences of the RE pattern in string with repl, substituting all occurrences unless max provided. This method would return modified string.
+Example:
+Following is the example:
+<pre>
+import re
+
+phone = "2004-959-559 # This is Phone Number"
+
+# Delete Python-style comments
+num = re.sub(r'#.*$', "", phone)
+print "Phone Num : ", num
+
+# Remove anything other than digits
+num = re.sub(r'\D', "", phone)
+print "Phone Num : ", num
+When the above code is executed, it produces the following result:
+Phone Num :  2004-959-559
+Phone Num :  2004959559
+</pre>
+<h4>Regular-expression Modifiers - Option Flags</h4>
+Regular expression literals may include an optional modifier to control various aspects of matching.
+The modifiers are specified as an optional flag. You can provide multiple modifiers using exclusive OR (|), as shown previously and may be represented by one of these:
+<pre>
+Modifier	Description
+
+    re.I	    Performs case-insensitive matching.
+
+    re.L	    Interprets words according to the current locale. This interpretation affects the
+                alphabetic group (\w and \W), as well as word boundary behavior (\b and \B).
+
+    re.M	    Makes $ match the end of a line (not just the end of the string) and
+                makes ^ match the start of any line (not just the start of the string).
+
+    re.S	    Makes a period (dot) match any character, including a newline.
+
+    re.U	    Interprets letters according to the Unicode character set.
+                This flag affects the behavior of \w, \W, \b, \B.
+
+    re.X	    Permits "cuter" regular expression syntax. It ignores whitespace (except
+                inside a set [] or when escaped by a backslash) and treats unescaped # as a comment marker.
+</pre>
+<h4>Regular-expression patterns</h4>
+Except for control characters, <code>(+ ? . * ^ $ ( ) [ ] { } | \),</code> all characters match themselves.
+You can escape a control character by preceding it with a backslash.
+Following table lists the regular expression syntax that is available in Python:
+<pre>
+
+    Pattern	    Description
+
+    ^	        Matches beginning of line.
+
+    $	        Matches end of line.
+
+    .	        Matches any single character except newline.
+            Using m option allows it to match newline as well.
+
+    [...]	    Matches any single character in brackets.
+
+    [^...]	    Matches any single character not in brackets
+
+    re*	        Matches 0 or more occurrences of preceding expression.
+
+    re+	        Matches 1 or more occurrence of preceding expression.
+
+    re?	        Matches 0 or 1 occurrence of preceding expression.
+
+    re{ n}	    Matches exactly n number of occurrences of preceding expression.
+
+    re{ n,}	    Matches n or more occurrences of preceding expression.
+
+    re{ n, m}	Matches at least n and at most m occurrences of preceding expression.
+
+    a| b	    Matches either a or b.
+
+    (re)	    Groups regular expressions and remembers matched text.
+
+    (?imx)	    Temporarily toggles on i, m, or x options within a regular
+            expression. If in parentheses, only that area is affected.
+
+    (?-imx)	    Temporarily toggles off i, m, or x options within a regular
+            expression. If in parentheses, only that area is affected.
+
+    (?: re)	    Groups regular expressions without remembering matched text.
+
+    (?imx: re)	Temporarily toggles on i, m, or x options within parentheses.
+
+    (?-imx: re)	Temporarily toggles off i, m, or x options within parentheses.
+
+    (?#...)	    Comment.
+
+    (?= re)	    Specifies position using a pattern. Doesn't have a range.
+
+    (?! re)	    Specifies position using pattern negation. Doesn't have a range.
+
+    (?> re)	    Matches independent pattern without backtracking.
+
+    \w	        Matches word characters.
+
+    \W	        Matches nonword characters.
+
+    \s	        Matches whitespace. Equivalent to [\t\n\r\f].
+
+    \S	        Matches nonwhitespace.
+
+    \d	        Matches digits. Equivalent to [0-9].
+
+    \D	        Matches nondigits.
+
+    \A	        Matches beginning of string.
+
+    \Z	        Matches end of string. If a newline exists, it matches just before newline.
+
+    \z	        Matches end of string.
+
+    \G	        Matches point where last match finished.
+
+    \b	        Matches word boundaries when outside brackets.
+                Matches backspace (0x08) when inside brackets.
+
+    \B	        Matches nonword boundaries.
+
+    \n, \t, etc.	Matches newlines, carriage returns, tabs, etc.
+
+    \1...\9	        Matches nth grouped subexpression.
+
+    \10	            Matches nth grouped subexpression if it matched already.
+                     Otherwise refers to the octal representation of a character code.
+</pre>
+<h4>Regular-expression Examples</h4>
+<h4>Literal characters</h4>
+<pre>
+Example	        Description
+python	        Match "python".
+</pre>
+    <h4>Character classes</h4>
+<pre>
+    Example	        Description
+
+    [Pp]ython	    Match "Python" or "python"
+
+    rub[ye]	        Match "ruby" or "rube"
+
+    [aeiou]	        Match any one lowercase vowel
+
+    [0-9]	        Match any digit; same as [0123456789]
+
+    [a-z]	        Match any lowercase ASCII letter
+
+    [A-Z]	        Match any uppercase ASCII letter
+
+    [a-zA-Z0-9]	    Match any of the above
+
+    [^aeiou]	    Match anything other than a lowercase vowel
+
+    [^0-9]	        Match anything other than a digit
+</pre>
+    <h4>Special Character Classes</h4>
+<pre>
+    Example	        Description
+
+    .	            Match any character except newline
+
+    \d	            Match a digit: [0-9]
+
+    \D	            Match a nondigit: [^0-9]
+
+    \s	            Match a whitespace character: [ \t\r\n\f]
+
+    \S	            Match nonwhitespace: [^ \t\r\n\f]
+
+    \w	            Match a single word character: [A-Za-z0-9_]
+
+    \W	            Match a nonword character: [^A-Za-z0-9_]
+</pre>
+    <h4>Repetition Cases</h4>
+<pre>
+    Example	    Description
+
+    ruby?	    Match "rub" or "ruby": the y is optional
+
+    ruby*	    Match "rub" plus 0 or more ys
+
+    ruby+	    Match "rub" plus 1 or more ys
+
+    \d{3}	    Match exactly 3 digits
+
+    \d{3,}	    Match 3 or more digits
+
+    \d{3,5}	    Match 3, 4, or 5 digits
+</pre>
+    <h4>Nongreedy repetition</h4>
+This matches the smallest number of repetitions:
+<pre>
+    Example	    Description
+
+    <.*>	    Greedy repetition: matches "<python>perl>"
+
+    <.*?>	    Nongreedy: matches "<python>" in "<python>perl>"
+    </pre>
+        <h4>Grouping with parentheses</h4>
+<pre>
+    Example	    Description
+
+    \D\d+	    No group: + repeats \d
+
+    (\D\d)+	    Grouped: + repeats \D\d pair
+
+    ([Pp]ython(, )?)+	Match "Python", "Python, python, python", etc.
+</pre>
+    <h4>Backreferences</h4>
+This matches a previously matched group again:
+<pre>
+    Example	                Description
+
+    ([Pp])ython&\1ails	    Match python&pails or Python&Pails
+
+    (['"])[^\1]*\1	        Single or double-quoted string. \1 matches whatever the 1st group matched .
+                            \2 matches whatever the 2nd group matched, etc.
+    </pre>
+    <h4>Alternatives</h4>
+<pre>
+    Example	        Description
+
+    python|perl	    Match "python" or "perl"
+
+    rub(y|le))  	Match "ruby" or "ruble"
+
+    Python(!+|\?)	"Python" followed by one or more ! or one ?
+</pre>
+    <h4>Anchors</h4>
+This needs to specify match position.
+<pre>
+    Example	    Description
+
+    ^Python	    Match "Python" at the start of a string or internal line
+
+    Python$	    Match "Python" at the end of a string or line
+
+    \APython	Match "Python" at the start of a string
+
+    Python\Z	Match "Python" at the end of a string
+
+    \bPython\b	Match "Python" at a word boundary
+
+    \brub\B	    \B is nonword boundary: match "rub" in "rube" and "ruby" but not alone
+
+    Python(?=!)	Match "Python", if followed by an exclamation point
+
+    Python(?!!)	Match "Python", if not followed by an exclamation point
+    </pre>
+    <h4>Special syntax with parentheses</h4>
+<pre>
+    Example	        Description
+
+    R(?#comment)	Matches "R". All the rest is a comment
+
+    R(?i)uby	    Case-insensitive while matching "uby"
+
+    R(?i:uby)	    Same as above
+
+    rub(?:y|le))	Group only without creating \1 backreference
+</pre>
+</p>
+
+                  </div>
+                  <!-- single blog nex & prev button -->
+                  <div class="single_blog_prevnext">
+                    <a class="prev_post wow fadeInLeft" href="/{{prevlesson}}"><i class="fa fa-angle-left"></i>{{prevlesson}}</a>
+                    <a class="next_post wow fadeInRight" href="/{{nxtlesson}}">{{nxtlesson}}<i class="fa fa-angle-right"></i></a>
+                  </div>
+                </div>
+                <!-- End single blog -->
+              </div>
+              <!-- end blog archive  -->
+              <!-- start related post -->
+              <div class="related_post">
+                <h2>Other Data Types</h2>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="single_blog_archive wow fadeInUp">
+                      <div class="blogimg_container">
+                        <a class="blog_img" href="/{{prevlesson}}">
+                          <img src={{prevpic}} alt="img">
+                        </a>
+                      </div>
+                      <h2 class="blog_title"><a href="/{{prevlesson}}">Python {{prevlesson}}</a></h2>
+
+                      <p class="blog_summary">{{prevtext}}</p>
+                      <a href="/{{prevlesson}}" class="blog_readmore">Read More</a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="single_blog_archive wow fadeInUp">
+                      <div class="blogimg_container">
+                        <a class="blog_img" href="/{{nxtlesson}}">
+                          <img src={{nxtpic}} alt="img">
+                        </a>
+                      </div>
+                      <h2 class="blog_title"><a href="/{{nxtlesson}}"> Python {{nxtlesson}}</a></h2>
+                      <div class="blog_commentbox">
+
+                      </div>
+                      <p class="blog_summary">{{nxttext}}</p>
+                      <a href="/{{nxtlesson}}" class="blog_readmore">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- start related post -->
+            </div>
+          </div>
+          <!-- End course content -->
+
+          <!-- start course archive sidebar -->
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="courseArchive_sidebar">
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Python Tricks <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="news_tab">
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Python for android</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Use Python to...</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#" class="news_img">
+                          <img alt="img" src="img/news.jpg" class="media-object">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                       <a href="#">Python can also...</a>
+                       <span class="feed_date">3.05.18</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Category <span class="fa fa-angle-double-right"></span></h2>
+                <ul>
+                  <li><a href="#">Food</a></li>
+                  <li><a href="#">Technology</a></li>
+                  <li><a href="#">Fashion</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Games</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Tags <span class="fa fa-angle-double-right"></span></h2>
+                <ul class="tags_nav">
+                  <li><a href="#"><i class="fa fa-tags"></i>Creative</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>News</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Technology</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Art</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>Audio</a></li>
+                  <li><a href="#"><i class="fa fa-tags"></i>video</a></li>
+                </ul>
+              </div>
+              <!-- End single sidebar -->
+               <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Sponsor Add(In stock) <span class="fa fa-angle-double-right"></span></h2>
+                <a class="side_add" href="#"><img src={{adpic}} alt="img" width={{width}} height={{height}}><span class="fa fa-whatsapp"></span>+233203592400</a></br>
+                Tel : +233203592400</br>
+              </div>
+              <!-- End single sidebar -->
+
+              <!-- start single sidebar -->
+              <div class="single_sidebar">
+                <h2>Sponsor Add(In stock) <span class="fa fa-angle-double-right"></span></h2>
+                <a class="side_add" href="#"><img src={{adpic2}} alt="img" width={{width}} height={{height}}><span class="fa fa-whatsapp"></span>+233203592400</a></br>
+                Tel : +233203592400</br>
+              </div>
+              <!-- End single sidebar -->
+            </div>
+          </div>
+          <!-- start course archive sidebar -->
+        </div>
+      </div>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    <!--=========== BEGIN FOOTER SECTION ================-->
+    <footer id="footer">
+      <!-- Start footer top area -->
+      <div class="footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>About Us</h3>
+                <p>Learn Python from scratch with PywE.</p>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Community</h3>
+                <ul class="footer_widget_nav">
+                  <li><a href="#">Our Tutors</a></li>
+                  <li><a href="#">Our Students</a></li>
+                  <li><a href="#">Our Team</a></li>
+                  <li><a href="#">Forum</a></li>
+                  <li><a href="#">News &amp; Media</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Others</h3>
+                <ul class="footer_widget_nav">
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                  <li><a href="#">Link 4</a></li>
+                  <li><a href="#">Link 5</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-ld-3  col-md-3 col-sm-3">
+              <div class="single_footer_widget">
+                <h3>Social Links</h3>
+                <ul class="footer_social">
+                  <li><a data-toggle="tooltip" data-placement="top" title="PywE on Fb" class="soc_tooltip" href="https://www.facebook.com/pg/pythonwithellie/"><i class="fa fa-facebook"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Twitter" class="soc_tooltip"  href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Google+" class="soc_tooltip"  href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Linkedin" class="soc_tooltip"  href="#"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a data-toggle="tooltip" data-placement="top" title="Youtube" class="soc_tooltip"  href="#"><i class="fa fa-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer top area -->
+
+      <!-- Start footer bottom area -->
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="footer_bootomLeft">
+                <p> Copyright &copy; All Rights Reserved</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="footer_bootomRight">
+                <p>Adapted by <a href="https://www.facebook.com/pg/pythonwithellie/" rel="nofollow">PywE</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer bottom area -->
+    </footer>
+    <!--=========== END FOOTER SECTION ================-->
+
+
+
+    <!-- Javascript Files
+    ================================================== -->
+
+    <!-- initialize jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Preloader js file -->
+    <script src="static/js/queryloader2.min.js" type="text/javascript"></script>
+    <!-- For smooth animatin  -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="static/js/slick.min.js"></script>
+    <!-- superslides slider -->
+    <script src="static/js/jquery.easing.1.3.js"></script>
+    <script src="static/js/jquery.animate-enhanced.min.js"></script>
+    <script src="static/js/jquery.superslides.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- for circle counter -->
+    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+    <!-- Gallery slider -->
+    <script type="text/javascript" language="javascript" src="static/js/jquery.tosrus.min.all.js"></script>
+
+    <!-- Custom js-->
+    <script src="static/js/custom.js"></script>
+
+  <!--===============================================
+    Template Design By WpFreeware Team.
+    Author URI : http://www.wpfreeware.com/
+  ====================================================-->
+
+  </body>
+</html>

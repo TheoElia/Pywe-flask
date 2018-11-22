@@ -1,0 +1,62 @@
+<html>
+    <head>
+
+    <title>Python Data types</title>
+    <style>
+
+body{background:url("/static/images/IMG-20180227-WA0019.jpg");background-size:cover;text-align:center;background-position: center center;
+  background-color:white;height:100%;border:5px 100% solid steelblue;font-size:120%;padding:5px 5px;font-family:Garamond;}
+h2{color:blue;}
+p{font-size:120%}
+div{padding:8px 8px;margin:5px;}
+
+.icon-bar { width: 100%; text-align: center; background-color: steelblue; overflow: auto; }
+.icon-bar a { width: 15%; padding: 5px 3px; float: left; transition: all 0.3s ease; color: steelblue ; font-size: 40px; }
+.icon-bar a:hover { background-color: #DCDCDC; }
+.active { background-color: #48d1cc !important; }
+.chip { display: inline-block; padding: 0 25px; height: 50px; font-size: 16px;
+line-height: 50px; border-radius: 25px; background-color: steelblue; color:white;}
+.chip img { float: left; margin: 0 10px 0 -25px; height: 50px; width: 50px; border-radius: 50%; }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/home/Learn/mysite/static/style.css" type="text/css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+</head>
+    <body>
+        <nav>
+        <div class="icon-bar">
+
+<a href="/">🌏Home
+</a>
+<a href="/">🎩Tricks<i class="fa fa"> </i></a>
+<a href="/course#services-section">📚Course</a>
+<a href="/#about-section">📱About</a>
+<a href="#">📰News</a>
+{% if current_user.is_authenticated %}
+<a style='background-color:white;' href="{{ url_for('logout') }}"><img src="{{image}}" width="50" height="50" style="border-radius:30px;">Logout</a>
+{% else %}
+<a style='background-color:white;' href="{{ url_for('login') }}"><i class="fa fa-user"></i>Login</a>
+
+{% endif %}
+</div>
+{% if current_user.is_authenticated %}
+
+                <div class="chip" style="float:left;">
+<img src="{{image}}" alt="User" width="96" height="96">{{User}}
+</div>
+</nav>
+
+<div>
+    <h1>{{User}}, PywE welcomes you to the course content</h1>
+    <h2>Course content coming soon...</h2>
+    <h4>Thanks for the patience</h4>
+</div>
+{% else %}
+<div style="font-size:150%">
+{{error}} <a href='/login'>login</a> to have access to course.
+</div>
+{% endif %}
+
+
+</body></html>

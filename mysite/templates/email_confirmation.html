@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PythonwithEllie | Email Confirmation</title>
+    <style>
+    form {display:block;color:#FFFFFFF;padding:8px 16px 8px 16px;text-decoration:none;}
+    body{height:500px;width:device-width;font-size:120%;background:url('/static/images/IMG-20180227-WA0019.jpg') bottom left no-repeat;}
+
+    .container{
+  margin: 5px auto;
+  width: 50%;
+  position: center;
+  height:60%;
+  float:left;
+
+  bottom:0;
+}
+#content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 25px 0 0;
+  background: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 1px 0 #fff inset;
+  padding: 25px 0 0;
+  border:1px solid #c4c6ca;
+}
+#content:before,
+#content:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #f9f9f9;
+  border:1px solid #c4c6ca;
+  box-shadow: 0 1px 0 #fff inset;
+  left:-1px;
+  top: 0;
+}
+#content:before{
+  transform:rotate(2deg);
+  z-index:-1;
+}
+#content:after{
+  transform:rotate(-3deg);
+  z-index: -2;
+}
+#content h1{
+  font-family: sans-serif,Arial;
+  font-size: 25px;
+  color: grey;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+}
+#content h1:before,
+#content h1:after{
+    content: "";
+    background: gray;
+    height: 2px;
+    position: absolute;
+    width: 20%;
+    margin: 32px;
+    top: 27px;
+}
+#content h1:before{
+  left: 0;
+}
+#content h1:after{
+  right: 0;
+}
+.wrapper{
+  width: 300px;
+  height: 45px;
+  background: #eae7e7;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  box-shadow: inset 0 0 8px #33dad6
+}
+.wrapper input{
+  width: 250px;
+  height: 45px;
+  background: transparent;
+  border:0px;
+  outline: none;
+  font-size: 16px;
+  font-family: sans-serif,Arial;
+  color: #333;
+
+}
+.wrapper .fa{
+  font-size: 20px;
+  color: #808080;
+}
+input[type="submit"]{
+  width: 150px;
+  height: 40px;
+  border-radius: 40px;
+  border: 0px;
+  outline: none;
+  background: rgb(254,231,154);
+  background:-webkit-linear-gradient(top, rgb(55, 217, 243) 0%,rgb(51, 218, 226) 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  cursor: pointer;
+  color: black;
+  font-family: sans-serif,Arial;
+  font-size:16px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+input[type="submit"]:hover{
+  background: -webkit-linear-gradient(top, rgb(68, 241, 11) 0%,rgb(65, 232, 23) 100%);
+}
+a{
+  text-decoration: none;
+  font-family: sans-serif,Arial;
+  border-left: -0.05em;
+  font-size:12px;
+  color:#333;
+  margin:25px;
+}
+a:hover{
+  color: gray;
+}
+</style>
+<link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+</head>
+<body>
+    <div>
+   <center> <p><b>Thank you {{email}} for verifying your email and welcome to PyWE.</b>
+   <br> <b>Click continue to login</b></p></center>
+</div>
+<br>
+
+<div>
+<center><form action="/login" method="Get">
+
+                        <button type="submit" class="wrapper" >Continue</button>
+</form></center>
+
+</div>
+</body>
+</html>

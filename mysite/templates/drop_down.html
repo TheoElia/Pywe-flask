@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+    margin: 1;
+    font-family: 'Lato', sans-serif;background:url('/static/images/ellie.jpg') bottom left no-repeat;
+    border:5px solid steelblue;padding:8px 8px;
+}
+
+.overlay {
+   height: 0%;
+   width: 100%;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: rgb(0,0,0);
+   background-color: rgba(0,0,0,0.9);
+   overflow-y: hidden;
+   transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #e1cd24;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px){
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+</style>
+<body>
+<nav>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)"
+  class="closebtn"
+  onclick="closeNav()">×</a>
+  <div class="overlay-content">
+    <a href="/">Home</a>
+    <a href="#Courses">Courses</a>
+    <a href="#Tricks">Tricks</a>
+    <a href="#About">About us</a>
+  </div>
+</div>
+
+
+<span style="font-size:30px;cursor:pointer;"
+
+onclick="openNav()">&#9776; Menu</span>
+
+<script>
+function openNav() {
+ document.getElementById("myNav")
+ .style.height="100%";
+}
+
+function closeNav() {
+ document.getElementById("myNav")
+ .style.height = "0%";
+}
+</script>
+</nav>
+<div style="padding:8px 8px;"><center><p><h1 style="color:red;"><u>Welcome To The Course</u></h1>
+    <br>Having a conversation with your computer might sound like<br>
+the script for a science fiction movie,
+but in this modern age with the rise
+of apple's Siri and other interactive software,
+perhaps you really don't find talking to your computer
+a fiction anymore.
+But to talk to your computer, you will discover
+the need to use a particular programming language
+to achieve that and since you are visiting this page,
+it's assumed you are interested in using
+Python for that. Python is a powerful
+programing language and very easy to learn,
+one major reason being that it's syntax is
+just like our everyday English language.
+You are welcomed. By the end of the course,
+you should be able to make simple
+calculators for anything,
+plot graphs as a way of visualising data,
+build python powered websites and more.
+<br>#Python with Ellie.</p></center></div>
+
+</body>
+</html>
+
+
+
+
+
+
+

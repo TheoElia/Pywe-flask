@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PythonwithEllie | Home</title>
+<meta name="PywE homepage" content="">
+<meta name="author" content="">
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBlvhpKjzmWweXtEL72MMJLXkPGlYrY2xI",
+    authDomain: "learn-d3f11.firebaseapp.com",
+    databaseURL: "https://learn-d3f11.firebaseio.com",
+    projectId: "learn-d3f11",
+    storageBucket: "",
+    messagingSenderId: "725578608859"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAWhEZkholpo9TEDp2o12REdu8StRFqHSc",
+    authDomain: "pywe-92968.firebaseapp.com",
+    databaseURL: "https://pywe-92968.firebaseio.com",
+    projectId: "pywe-92968",
+    storageBucket: "pywe-92968.appspot.com",
+    messagingSenderId: "591931135706"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+<link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+
+
+
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome/css/font-awesome.css">
+
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/prettyPhoto.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="static/js/modernizr.custom.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <style>
+
+.popup {
+
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+
+
+</style>
+
+<script>// Validating Empty Field
+
+//Function To Display Popup
+function div_show() {
+document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+document.getElementById('abc').style.display = "none";
+}</script>
+<style>
+#abc {
+width:100%;
+height:100%;
+opacity:0.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-image url("static/img/dots.jpg");
+overflow:auto;
+}
+
+div#popupContact1 {
+position:absolute;
+left:50%;
+top:17%;
+margin-left:-202px;
+font-family:'Raleway',sans-serif
+}
+.form1 {
+max-width:device-width;
+min-width:250px;
+padding:10px 50px;
+border:2px solid steelblue;
+border-radius:10px;
+font-family:'Raleway';
+background-color:#fff
+}
+p {
+margin-top:30px
+}
+#h21 {
+background-color:#36c2da;
+padding:15px 30px;
+margin:-10px -50px;
+text-align:center;
+border-radius:10px 10px 0 0
+}
+#hr1 {
+margin:10px -50px;
+border:0;
+border-top:1px solid #ccc
+}
+
+#submit {
+text-decoration:none;
+width:80%;
+text-align:center;
+display:block;
+background-color:#36c2da;
+color:#fff;
+border:1px solid #FFCB00;
+padding:10px 0;
+font-size:20px;
+cursor:pointer;
+border-radius:20px;
+}
+span {
+color:red;
+font-weight:700
+}
+.button1 {
+width:25%;
+height:20px;
+border-radius:20px;
+background-color:#36c2da;
+color:#fff;
+font-family:'Raleway',sans-serif;
+font-size:12px;
+cursor:pointer
+}</style>
+
+<style>
+.btn {
+    background-color:#36c2da;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-size: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color:DodgerBlue;
+}
+</style>
+
+<script>
+
+
+function myFunction() {
+  var popup = document.getElementById
+  ('myPopup');
+
+  popup.classList.toggle('show');
+}
+
+</script>
+<script type="text/javascript" style="float:right">
+
+    $("#password").password('toggle');
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+<body>
+
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="index.html">PywE</a> </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home" class="page-scroll">Home</a></li>
+        <li><a href="/course">Course</a></li>
+        <li><a href="#about-section" class="page-scroll">About</a></li>
+        <li><a href="#services-section" class="page-scroll">Services</a></li>
+        <li><a href="#works-section" class="page-scroll">Portfolio</a></li>
+        <li><a href="#team-section" class="page-scroll">Team</a></li>
+        <li><a href="#contact-section" class="page-scroll">Contact</a></li>
+
+        <li><a href="https://drive.google.com/file/d/1Yu33DBtLwWoFv8bRxbKBSv9BNCY_fnfa/view?usp=drivesdk"><button class="btn"><i class="fa fa-download"></i>PywE App</button></a></li>
+        {% if  current_user.is_authenticated %}
+         <li><a href="logout">Logout</a></li>
+         {% endif %}
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header class="text-center" name="home">
+  <div class="intro-text">
+    <h1>We are <br><span class="color" style="font-size:70%">PythonwithEllie</span></h1>
+    <p>We teach Python from scratch</p>
+    <div class="clearfix"></div>
+      <a href="#about-section" class="btn btn-default btn-lg page-scroll">Learn More</a> </div>
+{% if not current_user.is_authenticated %}
+      <div class="col-md-6">
+      <h4><span class="color">Login here</span></h4>
+      <form action="/login/" method="POST">
+        <div class="row">
+          <div class="col-md-6">
+
+              <input type="text" class="form-control" placeholder="Username" name="username" required="required">
+              <p class="help-block text-danger"></p>
+
+          </div>
+
+          <div class="col-md-6">
+
+              <input type="password" class="form-control" placeholder="Password" name="password" required="required" data-toggle="password">
+              <p class="help-block text-danger"></p><br>
+
+<button type="submit" class="btn btn-default">Login</button>
+          </div>
+        </div>
+
+
+
+
+        <div>
+				<a href="/forgotten" style="float:left;color:#00d3ff;font-family:'Bangers';font-size:20px;">Lost Your Password?</a>
+			</div>
+
+
+      </form>
+    </div>
+
+
+
+    <div class="col-md-6">
+      <h4><span class="color">Signup here</span></h4>
+      <form action="/signup" method="POST">
+        <div class="row">
+          <div class="col-md-6">
+
+              <input type="text" class="form-control" placeholder="Username" name="username" required="required">
+              <p class="help-block text-danger"></p>
+
+          </div>
+
+            <div class="col-md-6">
+
+              <input type="email" class="form-control" placeholder="Email" name="email" required="required">
+              <p class="help-block text-danger"></p>
+
+          </div>
+
+          <div class="col-md-6">
+
+              <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+              <p class="help-block text-danger"></p>
+
+          </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-default">Signup</button>
+      </form>
+    </div>
+<hr>
+{% endif %}
+</header>
+<br>
+
+<!-- About Section -->
+<div id="about-section">
+  <div class="container">
+    <div class="section-title">
+
+      <h2>About Us</h2>
+      <hr>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Who We Are</h4>
+        <p>A team of dedicated Programmers, who are ever ready to help new developers to catch up with programming techniques especially in Python. We teach Python from print (“hello world”) to advance Python programming.</p>
+
+      </div>
+      <div class="col-md-4">
+        <h4>What We Do</h4>
+        <p>We offer educational services especially in the area of Computer Science, programming with Python. We also, advertise and design webpages.
+</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Why Choose Us</h4>
+        <p>We have a dedicated team that is ever available to offer its service. </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Services Section -->
+<div id="services-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <hr>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-desktop"></i>
+        <h4>Web design</h4>
+        <p>We design the web</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-gears"></i>
+        <h4>App Development</h4>
+        <p>We are into app development</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-pie-chart"></i>
+        <h4>Analystics</h4>
+        <p>Data Science for analytical products</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-line-chart"></i>
+        <h4>Marketing</h4>
+        <p>We advertise.</p>
+      </div>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-shopping-cart"></i>
+        <h4>eCommerce</h4>
+        <p>eCommerce</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-file-text-o"></i>
+        <h4>Content Development</h4>
+        <p>...</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-rocket"></i>
+        <h4>Branding</h4>
+        <p>..</p>
+      </div>
+      <div class="col-md-3 col-sm-6 service"> <i class="fa fa-camera"></i>
+        <h4>Video & Photography</h4>
+        <p>...</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Portfolio Section -->
+<div id="works-section">
+  <div class="container"> <!-- Container -->
+    <div class="section-title">
+      <h2>Our Portfolio</h2>
+      <hr>
+      <div class="clearfix"></div>
+    </div>
+    <div class="categories">
+      <ul class="cat">
+        <li>
+          <ol class="type">
+            <li><a href="#" data-filter="*" class="active">All</a></li>
+            <li><a href="#" data-filter=".web">Products</a></li>
+            <li><a href="#" data-filter=".app">Python Projects</a></li>
+            <li><a href="#" data-filter=".branding">Advertisement</a></li>
+          </ol>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+        <div class="col-sm-6 col-md-3 col-lg-3 web">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href={{link2}} rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Products in stock</h4>
+                <small>{{name2}}</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src={{link2}} class="img-responsive" alt={{name2}}> </a> </div>
+              <b>{{name2}} for {{price2}}</b></br>
+              Contact +233203592400
+          </div>
+
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 app">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="static/img/portfolio/backend.png" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Python for backend</h4>
+                <small>What Python can do</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src="static/img/portfolio/backend.png" class="img-responsive" alt="Python for web"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 app">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="static/img/portfolio/yam.png" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Plot Ghaphs</h4>
+                <small>What Python can do</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src="static/img/portfolio/yam.png" class="img-responsive" alt="Python's matplotlib"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 app">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="static/img/portfolio/screen1.png" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Draw with Python</h4>
+                <small>What Python can do</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src="static/img/portfolio/screen1.png" class="img-responsive" alt="Python's turtle"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 branding">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="static/img/portfolio/01[1].jpg" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Advert</h4>
+                <small>Digital Painting</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src="static/img/portfolio/01[1].jpg" class="img-responsive" alt="Logo designs"> </a> </div>
+          </div>
+          Contact <a href="#">ArtlineGH</a>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 branding">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="static/img/dots.jpg" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Dispensers Of The Spirit</h4>
+                <small>DOTS Clique</small>
+                <div class="clearfix"></div>
+              </div>
+              <img src="static/img/dots.jpg" class="img-responsive" alt="Read More"> </a> </div>
+              Enjoy Spoken word and poetry with <a href="https://dwritersclique.wordpress.com/2017/03/03/in-dependence/">D O T S</a>
+        <br/>
+          </div>
+
+        </div>
+<br/>
+        <div class="col-sm-6 col-md-3 col-lg-3 web">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href={{link}} rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Products in Stock</h4>
+                <small>{{name}}</small>
+                <div class="clearfix"></div>
+              </div>
+
+              <img src={{link}} class="img-responsive" alt={{name}}> </a> </div>
+              <a href="#"></a>
+              <b>{{name}} for {{price}}</b></br>
+              Contact +233203592400
+              <br/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Team Section -->
+<div id="team-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Meet the Team</h2>
+      <hr>
+    </div>
+    <div id="row">
+      <div class="col-md-3 col-sm-6 team">
+        <div class="thumbnail"> <img src="static/img/team/01.jpeg" alt="..." class="team-img">
+          <div class="caption">
+            <h3>Theophilus Nutifafa</h3>
+            <p>Python Developer</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 team">
+        <div class="thumbnail"> <img src="static/img/team/05.jpg" alt="..." class="team-img">
+          <div class="caption">
+            <h3>Josefina Boateng</h3>
+            <p>Web Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 team">
+        <div class="thumbnail"> <img src="img/team/later.jpg" alt="..." class="team-img">
+          <div class="caption">
+            <h3>We need a volunteer</h3>
+            <p>Creative Director</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 team">
+        <div class="thumbnail"> <img src="img/team/later.jpg" alt="..." class="team-img">
+          <div class="caption">
+            <h3>We need a volunteer</h3>
+            <p>Project Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact Section -->
+<div id="contact-section">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Contact Us</h2>
+      <hr>
+    </div>
+    <div class="col-md-4">
+      <h4>Contact info</h4>
+      <div class="space"></div>
+      <p><i class="fa fa-map-marker"></i>Valley View University,
+        oyibi,Accra - Ghana</p>
+      <div class="space"></div>
+      <p><i class="fa fa-envelope-o"></i>pythonwithellie@gmail.com</p>
+      <div class="space"></div>
+      <p><i class="fa fa-phone"></i>+233 203592400</p>
+    </div>
+    <div class="col-md-8">
+      <h4>Leave us a message</h4>
+      <form action="/mail" method="POST">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" name="name1" id="name1" class="form-control" placeholder="Name" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" name="email1" id="email1" class="form-control" placeholder="Email" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-default">Send Message</button>
+        {% if success %}
+        <div class="form-control">
+        {{success}}
+        </div>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+<div id="social-section">
+  <div class="container">
+    <div class="social">
+      <ul>
+        <div class="popup"
+onmouseover="myFunction()"><li><a href="https://www.facebook.com/pythonwithellie/" title="PywE on fb"><i class="fa fa-facebook"></i></a></li><span class ="popuptext"
+id ="myPopup">PywE on fb</span></div>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+        <li><a href="#"><i class="fa fa-github"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container">
+    <p>Copyright &copy; Optics. Adapted by <a href="#" rel="nofollow">PyWe</a></p>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="static/js/bootstrap.js"></script>
+<script type="text/javascript" src="static/js/SmoothScroll.js"></script>
+<script type="text/javascript" src="static/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="static/js/jquery.isotope.js"></script>
+<script type="text/javascript" src="static/js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="static/js/coontact_me.js"></script>
+
+<!-- Javascripts
+    ================================================== -->
+<script type="text/javascript" src="static/js/main.js"></script>
+</body>
+</html>

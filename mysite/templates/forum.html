@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PythonwithEllie | Forum</title>
+<meta name="description" content="">
+<meta name="Theophilus Nutifafa" content="">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+<link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="static/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/prettyPhoto.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="static/js/modernizr.custom.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+button.accordion { background-color: #36c2da;
+color: white;
+cursor: pointer; padding: 15px; width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 100%;
+transition: 0.4s;
+border-radius:25px 0px 0px 0px;
+}
+button.accordion.active, button.accordion:hover { background-color: #36c2da; }
+button.accordion:after {
+/* Unicode character for "plus" sign (+) is '\02795' */
+content: '\02795'; font-size: 13px; color:white; float: right; margin-left: 2px;}
+button.accordion.active:after {
+/* Unicode character for "minus" sign (-) is '\2796' */
+content: '\2796';font-size: 13px; color:white; float: right; margin-left: 2px;}
+div.panel { padding: 8px 8px; background-color: white; max-height: 0; overflow: hidden; transition: 0.6s ease-in-out; opacity: 0;}
+div.panel.show { opacity: 1; max-height:100%;
+max-width:device-width;
+border:solid 5px #36c2da;
+    border-radius:25px 0px 0px 0px;
+}
+
+code{color:green;}
+div{text-align:center;}
+li{float:bottom;}
+li a {display:block;color:#2c79b4;
+padding:5px;text-decoration:none;
+text-align:center;
+font-style:bold;
+font-size:100%;
+margin-left:55%;
+margin:5%;}
+
+
+            ul{list-style-type:none;margin:5%;padding:5px 5px;overflow:hidden;}
+            .sidenav { height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color:white;font-family:'Bangers';
+.sidenav a { padding: 8px 8px 8px 32px; text-decoration: bold; font-size: 25px; color: black; display: block; transition: 0.3s }
+.sidenav a:hover, .offcanvas a:focus{ color:blue; }
+.sidenav
+.closebtn { position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px; }
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;} }
+
+.chip { display: inline-block; padding: 0 25px; height: 50px; font-size: 16px;
+line-height: 50px; border-radius: 25px; background-color: steelblue; color:white;}
+.chip img { float: left; margin: 0 10px 0 -25px; height: 50px; width: 50px; border-radius: 50%; }
+</style>
+    <style>
+    .pic-container{
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pic{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pic-container.pic-xs{
+  width: 50px;
+  height: 50px;
+}
+
+.pic-container.pic-small{
+  width: 70px;
+  height: 70px;
+}
+
+.pic-container.pic-medium{
+  width: 150px;
+  height: 150px;
+}
+
+.pic-container.pic-large{
+  width: 250px;
+  height: 250px;
+}
+
+
+.pic-container.pic-xl{
+  width: 350px;
+  height: 350px;
+}
+
+.pic-container.pic-circle{
+  border-radius: 50%;
+}
+
+.pic-overlay{
+  background-color:transparent;
+  opacity: 1.0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float:right;
+
+}
+
+.dropbtn {
+    background-color:black;
+    color: #97feba;
+    padding: 5px 5px;
+    font-size: 14px;
+    border-radius:25px;
+    cursor: pointer;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color:black;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: transparent;
+    min-width: 100px;
+    overflow: auto;
+    box-shadow: 0px 8px 8px 0px
+    rgba(0,0,0,0.2);
+    border-radius:25px;
+
+
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover{
+color:#b2ee4d
+}
+
+.dropdown a:hover
+{background-color: #b2ee4d}
+
+.show {display:block;}
+i{border:solid white;border-width:0px 2px 2px 0px;display:inline-block;padding:2px;}
+.down{transform:rotate(45deg);
+-webkit-transform:(45deg);}
+
+</style>
+<style>
+    #myInput {
+  background-image:
+  url('/img/search.png');
+
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a.header {
+  background-color: #e2e2e2;
+  cursor: default;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+.profile-header-container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-header-img {
+    padding: 54px;
+}
+
+.profile-header-img > img.img-circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #51D2B7;
+
+}
+
+.profile-header-img1 > img.img-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #51D2B7;
+    float:left;
+
+}
+
+.profile-header-img2 > img.img-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #51D2B7;
+    float:left;
+    margin-top:-10px;
+
+
+}
+
+#example {
+    border: 2px solid #36c2da;
+    padding: 10px;
+    border-radius: 25px;
+    width:70%;
+
+}
+
+.example1 {
+    border: 2px solid #36c2da;
+    padding: 25px 25px 0px 25px;
+    border-radius: 25px 0px 25px 0px;
+    width:100%;
+    background-color:#c5ecce;
+    position:relative;
+}
+.profile-header {
+    margin-top: -54px;
+}
+
+/**
+ * Ranking component
+ */
+.rank-label-container {
+    margin-top: -19px;
+    /* z-index: 1000; */
+    text-align: center;
+}
+.rank-label-container1 {
+    margin-left: -60px;
+    margin-top:-15px;
+    /* z-index: 1000; */
+    text-align: center;
+    float:left;
+}
+
+.label.label-default.rank-label {
+
+</style>
+
+<script>
+
+function myFunction() {
+document.getElementById("myDropdown")
+    .classList.toggle("show");
+}
+
+window.onclick = function(event) {
+if(!event.target.matches('.dropbtn')){
+
+var dropdowns = document
+.getElementsByClassName
+("dropdown-content");
+
+var i;
+for(i=0; i < dropdowns.length; i++) {
+var openDropdown = dropdowns[i];
+
+if (openDropdown.classList.contains
+('show')) {
+
+openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+
+<script type="text/javascript" style="float:right">
+    $("#password").password('toggle');
+</script>
+
+<script> /* Set the width of the side navigation to 250px */
+function openNav() { document.getElementById("mySidenav") .style.width="250px"; }
+function closeNav() { document.getElementById("mySidenav") .style.width = "0"; }
+</script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="index.html">PywE</a> </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+          {% if current_user.is_authenticated %}
+        <li><a href="/" class="page-scroll">Home</a></li>
+        <li><a href="/introduction" class="page-scroll">Course Intro</a></li>
+        <li><a href="#services-section" class="page-scroll">Outline</a></li>
+
+        <li><a href="#team-section" class="page-scroll">Tutors</a></li>
+        <li><a href="#contact-section" class="page-scroll">Comment</a></li>
+        {% else %}
+        <li><a href="/login/">Login</a></li>
+
+{% endif %}
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header class="text-center" name="home">
+  <div class="intro-text">
+      <div style="float:center;padding:2px;margin-top:-150px;">
+         <div class="profile-header-container">
+    		<div class="profile-header-img">
+
+                <img class="img-circle" src="{{image}}" />
+
+                <!-- badge -->
+                <div class="rank-label-container">
+                    <span>
+                         {% if current_user.is_authenticated %}
+<button onclick="myFunction()"
+ class="dropbtn"><div class="pic-overlay">
+      <a href="/uploader"><i class="fa fa-camera" aria-hidden="false"></i></a>
+  </div> {{User}} <i class="down"></i></button>
+  <div id="myDropdown"
+  class="dropdown-content">
+    <a href="/introduction">Course</a>
+    <a href="#about">To-Do List</a>
+    <a href="#user">Photos</a>
+    {% if current_user.is_authenticated %}
+
+<a href="{{ url_for('logout') }}">Log out</a>
+
+{% else %}
+<a href="{{ url_for('signup') }}">Register</a>
+{% endif %}
+  </div></span></div></div></div>
+</header>
+
+
+{% if current_user.is_authenticated %}
+<!-- Contact Section -->
+<div id="contact-section">
+  <div class="container">
+<h4><span class="color"> Join the conversation</span></h4>
+<br>
+
+
+
+            {% for comment in comments %}
+
+                    <div class="example1">
+                        <div class="profile-header-img2">
+<img class="img-circle" src="uploads/{{comment.commenter_pic}}" />
+</div>
+                       <span style="font-size:120%;"><i class="fa fa-quote-left"> {{ comment.content }} </i></span>
+
+<br>
+
+                        <small style="font-size:75%;color:black;padding:8px 8px;">
+
+                            {% if comment.posted %}
+                                {{ comment.posted.strftime("%A, %d %B %Y at %H:%M") }}
+                            {% else %}
+                                at an unknown time
+                            {% endif %}
+                            by
+                            {% if comment.commenter %}
+                                {{ comment.commenter.username }}
+                            {% else %}
+                                anonymous
+                            {% endif %}
+                        </small></div><br>
+
+                        {% endfor %}
+</div></div>
+
+</div></div>
+
+<div class="container">
+    <div class="col-md-12">
+
+      <form action="/forum" method="post">
+<div style="width:100%;">
+    <div class="container">
+	<div class="row">
+        <div class="profile-header-container1">
+    		<div class="profile-header-img1">
+                <img class="img-circle" src="{{image}}" />
+                <!-- badge -->
+                <div class="rank-label-container1">
+                    <span class="label label-default rank-label">{{User}}</span>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<div style="width:85%;float:right;">
+          <textarea name="contents" rows="3" id="example" placeholder="Leave your comments here" required></textarea>
+          <p class="help-block text-danger"></p></div>
+
+        <div id="success"></div>
+
+        <button type="submit" class="btn btn-default">Post Comment</button>
+      </form>
+    </div>
+    </div></div>
+
+ {%endif%}
+<br>
+
+<div class="container">
+     <div class="col-md-12">
+<div id="social-section">
+    <div class="social">
+      <h2><span class='color'>Social Links</span></h2>
+      <ul>
+        <li><a href="https://www.facebook.com/pythonwithellie/"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+        <li><a href="#"><i class="fa fa-github"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div></div>
+<div id="footer">
+  <div class="container">
+    <p>Copyright &copy; Optics. Adapted by <a href="http://www.templatewire.com" rel="nofollow">PyWe</a></p>
+  </div>
+</div>
+</div></div></div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="static/js/bootstrap.js"></script>
+<script type="text/javascript" src="static/js/SmoothScroll.js"></script>
+<script type="text/javascript" src="static/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="static/js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
+
+<script> var acc = document .getElementsByClassName("accordion");
+var i; for (i = 0; i < acc.length; i++)
+{ acc[i].onclick = function(){ this.classList.toggle("active");
+this.nextElementSibling.classList .toggle("show"); } }
+</script>
+
+
+
+
+
+<!-- Javascripts
+    ================================================== -->
+<script type="text/javascript" src="static/js/main.js"></script>
+
+</body>
+</html>

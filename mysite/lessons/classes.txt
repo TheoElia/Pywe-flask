@@ -1,0 +1,131 @@
+Classes and Objects.
+	Getting this concept in programming will help you organise and be able to reuse your own code over and over again. Reusing your code will in turn save you a lot of time while coding. One more thing, it will help you write concise and shorter codes.
+Creating Classes.
+You follow a particular syntax to create classes in every language, but the general idea is to
+create a blueprint or an outline of a particular module or class, define (def) it's various parts
+(functions or methods) and what in particular each of these functions or methods do.
+
+Declaring Objects.
+After creating your class, you will require an object, which can "wear" or "take up" the form, attributes and methods of the class, this is the way to make your blueprint useful.
+
+You might find the idea a bit daunting at first, you may be asking, "how do I put all of these together?"
+
+Let's look at classes this way; you are human (an object of the human class) and you have parts (functions or methods) and these parts  perform specific actions, and some, even multiple actions.
+Let's take the hand for an example and let's assume for the purpose of getting this idea clearly, that you only use the hand to throw a ball. This implies that anytime you want to use the hand, you will need a ball. Because..? Of course, because as we agreed earlier, the hand is for throwing a ball.
+
+Arguments/Parameters.
+
+We agreed that we needed a ball to use the hand. Do not get so lost in the analogy, the hand is a part of the human class, so the hand represents a function. Now, the name given to the ball is an argument or a parameter. Our function needs a ball (a parameter) in order to throw. So, any time you call this function, you need to supply it with a ball.
+You will do this in Python like this:
+# Create an object of the human class and name it
+Kofi =  Human()
+# Now call the function and supply it with a ball
+Kofi.hand('ball')
+
+Default arguments.
+
+Sometimes, during the creation of your class, you could provide a default argument to your function, so that whenever a user of your class calls that function without providing it with an argument, the function will go and pick up that default argument you provided to work with. Make this clear in your documentation so that the default behavior of your function will not be a surprise.
+Try this.
+# importing the sys class
+import sys
+print("Hello")
+sys.exit(0)
+
+Now try this:
+import sys
+print("hello")
+sys.exit()
+
+So the first time, you supplied an argument and it worked fine, the next, you did not, it still did work fine. That is because, the one who created this function called exit supplied it with a default argument which gets supplied to the function in case you did not provide any argument like in the second case.
+
+
+No arguments?
+
+However, you will agree with me that not every function (function) should require an argument to work. And yes, it is not every function that we create that should require an argument. So you can create a function like that, when it gets called, it just does something without requiring the user to supply anything. Can you think of any situation like that?
+Let's try this: If I said to you "polish", you should definitely ask me for an argument, that is "what should I polish?". but if I said "jump", you sure can do that without any questions.
+Let's put this in code:
+
+# Let's define our function called polish
+# Which always needs an argument
+def polish(item):
+	print("polished ",item)
+
+So, calling this function without providing an argument (what to polish) should raise an error.
+Now, let's create one that does not require anything.
+
+# Creating a function that does not require argument.
+def jump():
+	print("Jumped")
+The above requires no argument at all, so providing one will raise an error.
+
+Take Note: A typical function should return a value, we use the keyword return to terminate a function. So, if it is a calculation, then the return will return the final answer of the calculation. print was used just to make things clearer.
+Like this:
+
+def area_of_triangle(base,height):
+	answer = 0.5*base*height
+	return answer
+
+This is because, we typically do not print the value returned from a function but we use it for somthing else, we will like to leave that to whoever uses the function, whether the person would like to just print the "answer" to the console, pass it to another function, display it on a webpage or even pass it on to an artificial intelligence system, anything.
+
+
+Putting it all together
+
+Now, we can put all of these methods in one class, so when we create an object of that class, the object can perform all of these functions. So, we could define thousands of functions in one class and then create objects which will inherit these functions. You might already be guessing some powerful things you could use this ability for. It even gets much more exciting to know that there is the ability to inherit from other classes.
+So, a class can serve as a parent class to other classes who then become the child classes. the child classes "inherit" the abilities of their parent class. We will talk about inheritance later, for now, lets create our own classes, a human class.
+
+# Use the keyword class to begin and give it a name
+class Human:
+
+# We then initialise the class using __init__ method
+# This gets called whenever a user object is created
+
+	def __init__(self,Name="Kojo"):
+		self.name = Name
+
+	def get_name(self):
+		return self.name
+
+	def set_name(self,Name):
+		self.name = Name
+		return self.name
+
+	def polish(self,item):
+		value_added = "polished"
+		return item,value_added
+
+	def jump(self):
+		return self.name, "jumped"
+
+# Let's create an object of our class
+# Remember our __init__ requires two arguments:
+# Which are self (the object we created, so it's already supplied
+# And a Name
+Kofi = Human("Kofi")
+
+# Let's get the name of our object Kofi
+print(Kofi.get_name())
+>>>Kofi
+
+From our __init__ method, we have provided a default Name for any object created, so if you created an object of our Human class without passing any Name, the get_name method will still return that default argument, whcih in this case is Kojo. But if you do provide a Name like in the above, then that Name will override the default Name(Kojo).
+
+Let's set a new name for our object Kofi
+print(Kofi.set_name("Adwoa))
+>>>Adwoa
+
+The self argument gets supplied to our method anytime we call the object so there's no need to supply it ourselves.
+
+The get method is used to get attributes of our object, in this case we wrote one that gets the Name of the object, there are in_built get methods, also the set methods are used to modify those attributes, we also wrote an example ourselves, which sets a new Name for our object.
+
+We then wrote two other methods, one is polish which takes an argument, particularly, the item to polish and returns a "polished" item.
+The other method is jump, which just makes the object jumps.
+
+So there, we have created our own class, provided our own getters and setters, and other methods.
+We also learnt how to create an object of our class and how to put that object in use.
+
+
+Can you think of other methods you could add?
+How about some other attributes apart from the Name?, like skin color, hair color...
+
+FootNote: Some PEP8 rules were broken on purpose, this is to make codes clearer in our opinion and to make differentiating easier. In the case of the variable Naming, where we used "Name" instead of "name".
+
+

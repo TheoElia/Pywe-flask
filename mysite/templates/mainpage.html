@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <style>
+            p{border:5px solid steelblue;padding:10px;margin:30px;color:#2c79b4;font-family:"Times New Roman", Times, serif;
+            }
+            body{background:url("/static/images/Logo maker by roshi310.png") top left;background-size:cover;
+            background-color:#DCDCDC;border:5px solid steelblue;
+            padding:10px;margin:30px;color:#2c79b4;
+            font-family:"Times New Roman", Times, serif;bottom:0;}
+            div{padding:8px 8px;color:#2c79b4;}
+            li{float:left;}
+            li a {display:block;color:red; padding:5px 5px 5px 5px;text-decoration:none;text-align:center;font-style:bold;font-size:100%;margin-left:55%;margin:5%;}
+            li a.active{background-color:red;color:red;}
+            li a:hover:not(.active){background-color:#2c79b4;color:white;margin-left:55%;margin:5%;}
+            ul{list-style-type:none;margin:0;padding:8px 8px;overflow:hidden;}
+
+
+        </style>
+        <meta charset="utf-8/utf-8mb4">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Python with Ellie</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/PhotoGrid_1519630105589.png') }}">
+    </head>
+
+    <body>
+
+
+       <center> <nav class="navbar navbar-inverse" style="background:url('/static/images/Logo maker by roshi197.png') top left;background-size:cover;background-repeat:2;background-position: center center;
+       border:5px solid steelblue;padding:10px;border:2px solid steelblue;">
+            <center><div class="container">
+                <center><div class="navbar-header">
+                    <ul>
+                <li><a  href="/"> Home </a></li>
+                 <li> <a href="#Tricks">Tricks</a></li>
+                <li> <a href="/course">Course</a></li>
+                <li> <a href="#News">News</a></li>
+                <li> <a href="#About us">About</a></li>
+                <li> <a href="/signup">Register</a></li>
+                </ul>
+</div></center>
+                </div></center>
+
+
+
+               <center> <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %}
+
+                        <li><a style='color:black;padding:5px 5px;text-align:right;margin:5%;float:right;' href="{{ url_for('logout') }}">Logout</a></li>
+
+                    {% else %}
+                        <li><a style='color:black;padding:5px 5p;text-align:right;margin-left:55%;margin:5%;float:right;' href="{{ url_for('login') }}">Login</a></li>
+                        </ul></center>
+                        </nav></center>
+
+
+                        <div>
+
+                        <p style='height:100%;width:device-width;text-align:center;'>
+<big style="font-size:200%;color:black;">Borrowing this from Python for Dummies (a very good book to start with
+Python):</big ><br>
+<big style="font-size:200%;">H</big >aving a conversation with your computer might sound like the script of
+a science fiction movie. After all, the members of the Enterprise on Star
+Trek regularly talked with their computer. In fact, the computer often talked
+    back. However, with the rise of
+    <a href="(http://www.apple.com/ios/
+siri/)">Apple's Siri</a> and other interactive software, perhaps you really don’t find a
+    conversation so unbelievable.
+
+Asking the computer for information is one thing, but providing it with instructions is quite another. This website considers why you want to instruct your
+computer about anything and what benefit you gain from it. You also discover
+the need for a special language when performing this kind of communication
+and why you want to use <b >Python</b> to accomplish it. However, the main thing
+to get out of this site is that programming is simply a kind of communication that
+            is akin to other forms of communication you already have with your
+computer.</p></div>
+                    {% endif %}
+
+
+
+<hr style="background-color:#e1cd24;">
+
+            {% if current_user.is_authenticated %}
+                <div class="row">
+
+
+                    <div class="container" style="background-color:white;border:2px solid steelblue">
+            {% for comment in comments %}
+                <div class="row" style="margin-bottom: 1ex">
+                    <div style="padding:8px 8px;">
+                        {{ comment.content }}
+                    </div>
+                    <div>
+                        <small style="font-size:75%;color:steelblue;">
+
+                            {% if comment.posted %}
+                                {{ comment.posted.strftime("%A, %d %B %Y at %H:%M") }}
+                            {% else %}
+                                at an unknown time
+                            {% endif %}
+                            by
+                            {% if comment.commenter %}
+                                {{ comment.commenter.username }}
+                            {% else %}
+                                anonymous
+                            {% endif %}
+                        </small>
+                        {% endfor %}
+
+
+
+                    <br>
+                    <form action="." method="post"style="padding:5px 5px;" >
+                        <textarea name="contents" placeholder="Enter a comment" class="form-control"></textarea>
+                        <input type="submit" style="background-color:#2c79b4;color:#e1cd24;" class="btn btn-success" value="Post comment" required>
+                    </form>
+                </div>
+            {% endif %}
+
+                    </div>
+
+                </div>
+
+<center>
+Advert:
+<a href="https://www.thesitewizard.com/revenue/google-adsense.shtml" target="_top">
+    How to Add Google Advertisements (Google AdSense) to Your Blog or Website</a>
+    </center>
+
+
+        </div><!-- /.container -->
+
+    </body>
+   <center> <footer style="padding:5px 5px;background-color:#2c79b4;color:#e1cd24;text-align:center;bottom:0;">
+        ©All rights reserved by PythonwithEllie 2018
+    </footer></center>
+</html>

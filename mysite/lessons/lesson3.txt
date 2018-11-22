@@ -1,0 +1,1010 @@
+Python Object Oriented
+Python has been an object-oriented language from day one. Because of this, creating and using classes and objects are downright easy. This chapter helps you become an expert in using Python's object-oriented programming support.
+
+If you don't have any previous experience with object-oriented (OO) programming, you may want to consult an introductory course on it or at least a tutorial of some sort so that you have a grasp of the basic concepts.
+
+However, here is small introduction of Object-Oriented Programming (OOP) to bring you at speed:
+
+Overview of OOP Terminology
+Class: A user-defined prototype for an object that defines a set of attributes that characterize any object of the class. The attributes are data members (class variables and instance variables) and methods, accessed via dot notation.
+
+Class variable: A variable that is shared by all instances of a class. Class variables are defined within a class but outside any of the class's methods. Class variables aren't used as frequently as instance variables are.
+
+Data member: A class variable or instance variable that holds data associated with a class and its objects.
+
+Function overloading: The assignment of more than one behavior to a particular function. The operation performed varies by the types of objects (arguments) involved.
+
+Instance variable: A variable that is defined inside a method and belongs only to the current instance of a class.
+
+Inheritance : The transfer of the characteristics of a class to other classes that are derived from it.
+
+Instance: An individual object of a certain class. An object obj that belongs to a class Circle, for example, is an instance of the class Circle.
+
+Instantiation : The creation of an instance of a class.
+
+Method : A special kind of function that is defined in a class definition.
+
+Object : A unique instance of a data structure that's defined by its class. An object comprises both data members (class variables and instance variables) and methods.
+
+Operator overloading: The assignment of more than one function to a particular operator.
+
+Creating Classes:
+The class statement creates a new class definition. The name of the class immediately follows the keyword class followed by a colon as follows:
+
+class ClassName:
+   'Optional class documentation string'
+   class_suite
+The class has a documentation string, which can be accessed via ClassName.__doc__.
+
+The class_suite consists of all the component statements defining class members, data attributes and functions.
+
+Example:
+Following is the example of a simple Python class:
+
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+The variable empCount is a class variable whose value would be shared among all instances of a this class. This can be accessed as Employee.empCount from inside the class or outside the class.
+
+The first method __init__() is a special method, which is called class constructor or initialization method that Python calls when you create a new instance of this class.
+
+You declare other class methods like normal functions with the exception that the first argument to each method is self. Python adds the self argument to the list for you; you don't need to include it when you call the methods.
+
+Creating instance objects:
+To create instances of a class, you call the class using class name and pass in whatever arguments its __init__ method accepts.
+
+"This would create first object of Employee class"
+emp1 = Employee("Zara", 2000)
+"This would create second object of Employee class"
+emp2 = Employee("Manni", 5000)
+Accessing attributes:
+You access the object's attributes using the dot operator with object. Class variable would be accessed using class name as follows:
+
+emp1.displayEmployee()
+emp2.displayEmployee()
+print "Total Employee %d" % Employee.empCount
+Now, putting all the concepts together:
+
+#!/usr/bin/python
+
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+
+"This would create first object of Employee class"
+emp1 = Employee("Zara", 2000)
+"This would create second object of Employee class"
+emp2 = Employee("Manni", 5000)
+emp1.displayEmployee()
+emp2.displayEmployee()
+print "Total Employee %d" % Employee.empCount
+When the above code is executed, it produces the following result:
+
+Name :  Zara ,Salary:  2000
+Name :  Manni ,Salary:  5000
+Total Employee 2
+You can add, remove or modify attributes of classes and objects at any time:
+
+emp1.age = 7  # Add an 'age' attribute.
+emp1.age = 8  # Modify 'age' attribute.
+del emp1.age  # Delete 'age' attribute.
+Instead of using the normal statements to access attributes, you can use following functions:
+
+The getattr(obj, name[, default]) : to access the attribute of object.
+
+The hasattr(obj,name) : to check if an attribute exists or not.
+
+The setattr(obj,name,value) : to set an attribute. If attribute does not exist, then it would be created.
+
+The delattr(obj, name) : to delete an attribute.
+
+hasattr(emp1, 'age')    # Returns true if 'age' attribute exists
+getattr(emp1, 'age')    # Returns value of 'age' attribute
+setattr(emp1, 'age', 8) # Set attribute 'age' at 8
+delattr(empl, 'age')    # Delete attribute 'age'
+Built-In Class Attributes:
+Every Python class keeps following built-in attributes and they can be accessed using dot operator like any other attribute:
+
+__dict__ : Dictionary containing the class's namespace.
+
+__doc__ : Class documentation string or None if undefined.
+
+__name__: Class name.
+
+__module__: Module name in which the class is defined. This attribute is "__main__" in interactive mode.
+
+__bases__ : A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.
+
+For the above class let's try to access all these attributes:
+
+#!/usr/bin/python
+
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+
+print "Employee.__doc__:", Employee.__doc__
+print "Employee.__name__:", Employee.__name__
+print "Employee.__module__:", Employee.__module__
+print "Employee.__bases__:", Employee.__bases__
+print "Employee.__dict__:", Employee.__dict__
+When the above code is executed, it produces the following result:
+
+Employee.__doc__: Common base class for all employees
+Employee.__name__: Employee
+Employee.__module__: __main__
+Employee.__bases__: ()
+Employee.__dict__: {'__module__': '__main__', 'displayCount':
+<function displayCount at 0xb7c84994>, 'empCount': 2,
+'displayEmployee': <function displayEmployee at 0xb7c8441c>,
+'__doc__': 'Common base class for all employees',
+'__init__': <function __init__ at 0xb7c846bc>}
+Destroying Objects (Garbage Collection):
+Python deletes unneeded objects (built-in types or class instances) automatically to free memory space. The process by which Python periodically reclaims blocks of memory that no longer are in use is termed garbage collection.
+
+Python's garbage collector runs during program execution and is triggered when an object's reference count reaches zero. An object's reference count changes as the number of aliases that point to it changes.
+
+An object's reference count increases when it's assigned a new name or placed in a container (list, tuple or dictionary). The object's reference count decreases when it's deleted with del, its reference is reassigned, or its reference goes out of scope. When an object's reference count reaches zero, Python collects it automatically.
+
+a = 40      # Create object <40>
+b = a       # Increase ref. count  of <40>
+c = [b]     # Increase ref. count  of <40>
+
+del a       # Decrease ref. count  of <40>
+b = 100     # Decrease ref. count  of <40>
+c[0] = -1   # Decrease ref. count  of <40>
+You normally won't notice when the garbage collector destroys an orphaned instance and reclaims its space. But a class can implement the special method __del__(), called a destructor, that is invoked when the instance is about to be destroyed. This method might be used to clean up any nonmemory resources used by an instance.
+
+Example:
+This __del__() destructor prints the class name of an instance that is about to be destroyed:
+
+#!/usr/bin/python
+
+class Point:
+   def __init( self, x=0, y=0):
+      self.x = x
+      self.y = y
+   def __del__(self):
+      class_name = self.__class__.__name__
+      print class_name, "destroyed"
+
+pt1 = Point()
+pt2 = pt1
+pt3 = pt1
+print id(pt1), id(pt2), id(pt3) # prints the ids of the obejcts
+del pt1
+del pt2
+del pt3
+When the above code is executed, it produces following result:
+
+3083401324 3083401324 3083401324
+Point destroyed
+Note: Ideally, you should define your classes in separate file, then you should import them in your main program file using import statement. Kindly check Python - Modules chapter for more details on importing modules and classes.
+
+Class Inheritance:
+Instead of starting from scratch, you can create a class by deriving it from a preexisting class by listing the parent class in parentheses after the new class name.
+
+The child class inherits the attributes of its parent class, and you can use those attributes as if they were defined in the child class. A child class can also override data members and methods from the parent.
+
+Syntax:
+Derived classes are declared much like their parent class; however, a list of base classes to inherit from are given after the class name:
+
+class SubClassName (ParentClass1[, ParentClass2, ...]):
+   'Optional class documentation string'
+   class_suite
+Example:
+#!/usr/bin/python
+
+class Parent:        # define parent class
+   parentAttr = 100
+   def __init__(self):
+      print "Calling parent constructor"
+
+   def parentMethod(self):
+      print 'Calling parent method'
+
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+
+   def getAttr(self):
+      print "Parent attribute :", Parent.parentAttr
+
+class Child(Parent): # define child class
+   def __init__(self):
+      print "Calling child constructor"
+
+   def childMethod(self):
+      print 'Calling child method'
+
+c = Child()          # instance of child
+c.childMethod()      # child calls its method
+c.parentMethod()     # calls parent's method
+c.setAttr(200)       # again call parent's method
+c.getAttr()          # again call parent's method
+When the above code is executed, it produces the following result:
+
+Calling child constructor
+Calling child method
+Calling parent method
+Parent attribute : 200
+Similar way, you can drive a class from multiple parent classes as follows:
+
+class A:        # define your class A
+.....
+
+class B:         # define your calss B
+.....
+
+class C(A, B):   # subclass of A and B
+.....
+You can use issubclass() or isinstance() functions to check a relationships of two classes and instances.
+
+The issubclass(sub, sup) boolean function returns true if the given subclass sub is indeed a subclass of the superclass sup.
+
+The isinstance(obj, Class) boolean function returns true if obj is an instance of class Class or is an instance of a subclass of Class
+
+Overriding Methods:
+You can always override your parent class methods. One reason for overriding parent's methods is because you may want special or different functionality in your subclass.
+
+Example:
+#!/usr/bin/python
+
+class Parent:        # define parent class
+   def myMethod(self):
+      print 'Calling parent method'
+
+class Child(Parent): # define child class
+   def myMethod(self):
+      print 'Calling child method'
+
+c = Child()          # instance of child
+c.myMethod()         # child calls overridden method
+When the above code is executed, it produces the following result:
+
+Calling child method
+Base Overloading Methods:
+Following table lists some generic functionality that you can override in your own classes:
+
+SN	Method, Description & Sample Call
+1	__init__ ( self [,args...] )
+Constructor (with any optional arguments)
+Sample Call : obj = className(args)
+2	__del__( self )
+Destructor, deletes an object
+Sample Call : del obj
+3	__repr__( self )
+Evaluatable string representation
+Sample Call : repr(obj)
+4	__str__( self )
+Printable string representation
+Sample Call : str(obj)
+5	__cmp__ ( self, x )
+Object comparison
+Sample Call : cmp(obj, x)
+Overloading Operators:
+Suppose you've created a Vector class to represent two-dimensional vectors, what happens when you use the plus operator to add them? Most likely Python will yell at you.
+
+You could, however, define the __add__ method in your class to perform vector addition and then the plus operator would behave as per expectation:
+
+Example:
+#!/usr/bin/python
+
+class Vector:
+   def __init__(self, a, b):
+      self.a = a
+      self.b = b
+
+   def __str__(self):
+      return 'Vector (%d, %d)' % (self.a, self.b)
+
+   def __add__(self,other):
+      return Vector(self.a + other.a, self.b + other.b)
+
+v1 = Vector(2,10)
+v2 = Vector(5,-2)
+print v1 + v2
+When the above code is executed, it produces the following result:
+
+Vector(7,8)
+Data Hiding:
+An object's attributes may or may not be visible outside the class definition. For these cases, you can name attributes with a double underscore prefix, and those attributes will not be directly visible to outsiders.
+
+Example:
+#!/usr/bin/python
+
+class JustCounter:
+   __secretCount = 0
+
+   def count(self):
+      self.__secretCount += 1
+      print self.__secretCount
+
+counter = JustCounter()
+counter.count()
+counter.count()
+print counter.__secretCount
+When the above code is executed, it produces the following result:
+
+1
+2
+Traceback (most recent call last):
+  File "test.py", line 12, in <module>
+    print counter.__secretCount
+AttributeError: JustCounter instance has no attribute '__secretCount'
+Python protects those members by internally changing the name to include the class name. You can access such attributes as object._className__attrName. If you would replace your last line as following, then it would work for you:
+
+.........................
+print counter._JustCounter__secretCount
+When the above code is executed, it produces the following result:
+
+1
+2
+2
+
+
+
+
+
+
+
+Python Regular Expressions
+A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings, using a specialized syntax held in a pattern. Regular expressions are widely used in UNIX world.
+
+The module re provides full support for Perl-like regular expressions in Python. The re module raises the exception re.error if an error occurs while compiling or using a regular expression.
+
+We would cover two important functions, which would be used to handle regular expressions. But a small thing first: There are various characters, which would have special meaning when they are used in regular expression. To avoid any confusion while dealing with regular expressions, we would use Raw Strings as r'expression'.
+
+The match Function
+This function attempts to match RE pattern to string with optional flags.
+
+Here is the syntax for this function:
+
+re.match(pattern, string, flags=0)
+Here is the description of the parameters:
+
+Parameter	Description
+pattern	This is the regular expression to be matched.
+string	This is the string, which would be searched to match the pattern at the beginning of string.
+flags	You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.
+The re.match function returns a match object on success, None on failure. We would use group(num) or groups() function of match object to get matched expression.
+
+Match Object Methods	Description
+group(num=0)	This method returns entire match (or specific subgroup num)
+groups()	This method returns all matching subgroups in a tuple (empty if there weren't any)
+Example:
+#!/usr/bin/python
+import re
+
+line = "Cats are smarter than dogs"
+
+matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I)
+
+if matchObj:
+   print "matchObj.group() : ", matchObj.group()
+   print "matchObj.group(1) : ", matchObj.group(1)
+   print "matchObj.group(2) : ", matchObj.group(2)
+else:
+   print "No match!!"
+When the above code is executed, it produces following result:
+
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+The search Function
+This function searches for first occurrence of RE pattern within string with optional flags.
+
+Here is the syntax for this function:
+
+re.search(pattern, string, flags=0)
+Here is the description of the parameters:
+
+Parameter	Description
+pattern	This is the regular expression to be matched.
+string	This is the string, which would be searched to match the pattern anywhere in the string.
+flags	You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.
+The re.search function returns a match object on success, None on failure. We would use group(num) or groups() function of match object to get matched expression.
+
+Match Object Methods	Description
+group(num=0)	This method returns entire match (or specific subgroup num)
+groups()	This method returns all matching subgroups in a tuple (empty if there weren't any)
+Example:
+#!/usr/bin/python
+import re
+
+line = "Cats are smarter than dogs";
+
+searchObj = re.search( r'(.*) are (.*?) .*', line, re.M|re.I)
+
+if searchObj:
+   print "searchObj.group() : ", searchObj.group()
+   print "searchObj.group(1) : ", searchObj.group(1)
+   print "searchObj.group(2) : ", searchObj.group(2)
+else:
+   print "Nothing found!!"
+When the above code is executed, it produces following result:
+
+matchObj.group() :  Cats are smarter than dogs
+matchObj.group(1) :  Cats
+matchObj.group(2) :  smarter
+Matching vs Searching:
+Python offers two different primitive operations based on regular expressions: match checks for a match only at the beginning of the string, while search checks for a match anywhere in the string (this is what Perl does by default).
+
+Example:
+#!/usr/bin/python
+import re
+
+line = "Cats are smarter than dogs";
+
+matchObj = re.match( r'dogs', line, re.M|re.I)
+if matchObj:
+   print "match --> matchObj.group() : ", matchObj.group()
+else:
+   print "No match!!"
+
+searchObj = re.search( r'dogs', line, re.M|re.I)
+if searchObj:
+   print "search --> searchObj.group() : ", searchObj.group()
+else:
+   print "Nothing found!!"
+When the above code is executed, it produces the following result:
+
+No match!!
+search --> matchObj.group() :  dogs
+Search and Replace:
+Some of the most important re methods that use regular expressions is sub.
+
+Syntax:
+re.sub(pattern, repl, string, max=0)
+This method replaces all occurrences of the RE pattern in string with repl, substituting all occurrences unless max provided. This method would return modified string.
+
+Example:
+Following is the example:
+
+#!/usr/bin/python
+import re
+
+phone = "2004-959-559 # This is Phone Number"
+
+# Delete Python-style comments
+num = re.sub(r'#.*$', "", phone)
+print "Phone Num : ", num
+
+# Remove anything other than digits
+num = re.sub(r'\D', "", phone)
+print "Phone Num : ", num
+When the above code is executed, it produces the following result:
+
+Phone Num :  2004-959-559
+Phone Num :  2004959559
+Regular-expression Modifiers - Option Flags
+Regular expression literals may include an optional modifier to control various aspects of matching. The modifiers are specified as an optional flag. You can provide multiple modifiers using exclusive OR (|), as shown previously and may be represented by one of these:
+
+Modifier	Description
+re.I	Performs case-insensitive matching.
+re.L	Interprets words according to the current locale. This interpretation affects the alphabetic group (\w and \W), as well as word boundary behavior (\b and \B).
+re.M	Makes $ match the end of a line (not just the end of the string) and makes ^ match the start of any line (not just the start of the string).
+re.S	Makes a period (dot) match any character, including a newline.
+re.U	Interprets letters according to the Unicode character set. This flag affects the behavior of \w, \W, \b, \B.
+re.X	Permits "cuter" regular expression syntax. It ignores whitespace (except inside a set [] or when escaped by a backslash) and treats unescaped # as a comment marker.
+Regular-expression patterns:
+Except for control characters, (+ ? . * ^ $ ( ) [ ] { } | \), all characters match themselves. You can escape a control character by preceding it with a backslash.
+
+Following table lists the regular expression syntax that is available in Python:
+
+Pattern	Description
+^	Matches beginning of line.
+$	Matches end of line.
+.	Matches any single character except newline. Using m option allows it to match newline as well.
+[...]	Matches any single character in brackets.
+[^...]	Matches any single character not in brackets
+re*	Matches 0 or more occurrences of preceding expression.
+re+	Matches 1 or more occurrence of preceding expression.
+re?	Matches 0 or 1 occurrence of preceding expression.
+re{ n}	Matches exactly n number of occurrences of preceding expression.
+re{ n,}	Matches n or more occurrences of preceding expression.
+re{ n, m}	Matches at least n and at most m occurrences of preceding expression.
+a| b	Matches either a or b.
+(re)	Groups regular expressions and remembers matched text.
+(?imx)	Temporarily toggles on i, m, or x options within a regular expression. If in parentheses, only that area is affected.
+(?-imx)	Temporarily toggles off i, m, or x options within a regular expression. If in parentheses, only that area is affected.
+(?: re)	Groups regular expressions without remembering matched text.
+(?imx: re)	Temporarily toggles on i, m, or x options within parentheses.
+(?-imx: re)	Temporarily toggles off i, m, or x options within parentheses.
+(?#...)	Comment.
+(?= re)	Specifies position using a pattern. Doesn't have a range.
+(?! re)	Specifies position using pattern negation. Doesn't have a range.
+(?> re)	Matches independent pattern without backtracking.
+\w	Matches word characters.
+\W	Matches nonword characters.
+\s	Matches whitespace. Equivalent to [\t\n\r\f].
+\S	Matches nonwhitespace.
+\d	Matches digits. Equivalent to [0-9].
+\D	Matches nondigits.
+\A	Matches beginning of string.
+\Z	Matches end of string. If a newline exists, it matches just before newline.
+\z	Matches end of string.
+\G	Matches point where last match finished.
+\b	Matches word boundaries when outside brackets. Matches backspace (0x08) when inside brackets.
+\B	Matches nonword boundaries.
+\n, \t, etc.	Matches newlines, carriage returns, tabs, etc.
+\1...\9	Matches nth grouped subexpression.
+\10	Matches nth grouped subexpression if it matched already. Otherwise refers to the octal representation of a character code.
+Regular-expression Examples
+Literal characters:
+Example	Description
+python	Match "python".
+Character classes:
+Example	Description
+[Pp]ython	Match "Python" or "python"
+rub[ye]	Match "ruby" or "rube"
+[aeiou]	Match any one lowercase vowel
+[0-9]	Match any digit; same as [0123456789]
+[a-z]	Match any lowercase ASCII letter
+[A-Z]	Match any uppercase ASCII letter
+[a-zA-Z0-9]	Match any of the above
+[^aeiou]	Match anything other than a lowercase vowel
+[^0-9]	Match anything other than a digit
+Special Character Classes:
+Example	Description
+.	Match any character except newline
+\d	Match a digit: [0-9]
+\D	Match a nondigit: [^0-9]
+\s	Match a whitespace character: [ \t\r\n\f]
+\S	Match nonwhitespace: [^ \t\r\n\f]
+\w	Match a single word character: [A-Za-z0-9_]
+\W	Match a nonword character: [^A-Za-z0-9_]
+Repetition Cases:
+Example	Description
+ruby?	Match "rub" or "ruby": the y is optional
+ruby*	Match "rub" plus 0 or more ys
+ruby+	Match "rub" plus 1 or more ys
+\d{3}	Match exactly 3 digits
+\d{3,}	Match 3 or more digits
+\d{3,5}	Match 3, 4, or 5 digits
+Nongreedy repetition:
+This matches the smallest number of repetitions:
+
+Example	Description
+<.*>	Greedy repetition: matches "<python>perl>"
+<.*?>	Nongreedy: matches "<python>" in "<python>perl>"
+Grouping with parentheses:
+Example	Description
+\D\d+	No group: + repeats \d
+(\D\d)+	Grouped: + repeats \D\d pair
+([Pp]ython(, )?)+	Match "Python", "Python, python, python", etc.
+Backreferences:
+This matches a previously matched group again:
+
+Example	Description
+([Pp])ython&\1ails	Match python&pails or Python&Pails
+(['"])[^\1]*\1	Single or double-quoted string. \1 matches whatever the 1st group matched . \2 matches whatever the 2nd group matched, etc.
+Alternatives:
+Example	Description
+python|perl	Match "python" or "perl"
+rub(y|le))	Match "ruby" or "ruble"
+Python(!+|\?)	"Python" followed by one or more ! or one ?
+Anchors:
+This needs to specify match position.
+
+Example	Description
+^Python	Match "Python" at the start of a string or internal line
+Python$	Match "Python" at the end of a string or line
+\APython	Match "Python" at the start of a string
+Python\Z	Match "Python" at the end of a string
+\bPython\b	Match "Python" at a word boundary
+\brub\B	\B is nonword boundary: match "rub" in "rube" and "ruby" but not alone
+Python(?=!)	Match "Python", if followed by an exclamation point
+Python(?!!)	Match "Python", if not followed by an exclamation point
+Special syntax with parentheses:
+Example	Description
+R(?#comment)	Matches "R". All the rest is a comment
+R(?i)uby	Case-insensitive while matching "uby"
+R(?i:uby)	Same as above
+rub(?:y|le))	Group only without creating \1 backreference
+
+
+
+
+Python MySQL Database Access
+The Python standard for database interfaces is the Python DB-API. Most Python database interfaces adhere to this standard.
+
+You can choose the right database for your application. Python Database API supports a wide range of database servers:
+
+GadFly
+
+mSQL
+
+MySQL
+
+PostgreSQL
+
+Microsoft SQL Server 2000
+
+Informix
+
+Interbase
+
+Oracle
+
+Sybase
+
+Here is the list of available Python database interfaces: Python Database Interfaces and APIs .You must download a separate DB API module for each database you need to access. For example, if you need to access an Oracle database as well as a MySQL database, you must download both the Oracle and the MySQL database modules.
+
+The DB API provides a minimal standard for working with databases using Python structures and syntax wherever possible. This API includes the following:
+
+Importing the API module.
+
+Acquiring a connection with the database.
+
+Issuing SQL statements and stored procedures.
+
+Closing the connection
+
+We would learn all the concepts using MySQL, so let's talk about MySQLdb module only.
+
+What is MySQLdb?
+MySQLdb is an interface for connecting to a MySQL database server from Python. It implements the Python Database API v2.0 and is built on top of the MySQL C API.
+
+How do I install the MySQLdb?
+Before proceeding, you make sure you have MySQLdb installed on your machine. Just type the following in your Python script and execute it:
+
+#!/usr/bin/python
+
+import MySQLdb
+If it produces the following result, then it means MySQLdb module is not installed:
+
+Traceback (most recent call last):
+  File "test.py", line 3, in <module>
+    import MySQLdb
+ImportError: No module named MySQLdb
+To install MySQLdb module, download it from MySQLdb Download page and proceed as follows:
+
+$ gunzip MySQL-python-1.2.2.tar.gz
+$ tar -xvf MySQL-python-1.2.2.tar
+$ cd MySQL-python-1.2.2
+$ python setup.py build
+$ python setup.py install
+Note: Make sure you have root privilege to install above module.
+
+Database Connection:
+Before connecting to a MySQL database, make sure of the followings:
+
+You have created a database TESTDB.
+
+You have created a table EMPLOYEE in TESTDB.
+
+This table is having fields FIRST_NAME, LAST_NAME, AGE, SEX and INCOME.
+
+User ID "testuser" and password "test123" are set to access TESTDB.
+
+Python module MySQLdb is installed properly on your machine.
+
+You have gone through MySQL tutorial to understand MySQL Basics.
+
+Example:
+Following is the example of connecting with MySQL database "TESTDB"
+
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# execute SQL query using execute() method.
+cursor.execute("SELECT VERSION()")
+
+# Fetch a single row using fetchone() method.
+data = cursor.fetchone()
+
+print "Database version : %s " % data
+
+# disconnect from server
+db.close()
+While running this script, it is producing the following result in my Linux machine.
+
+Database version : 5.0.45
+If a connection is established with the datasource, then a Connection Object is returned and saved into db for further use, otherwise db is set to None. Next, db object is used to create a cursor object, which in turn is used to execute SQL queries. Finally, before coming out, it ensures that database connection is closed and resources are released.
+
+Creating Database Table:
+Once a database connection is established, we are ready to create tables or records into the database tables using execute method of the created cursor.
+
+Example:
+First, let's create Database table EMPLOYEE:
+
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Drop table if it already exist using execute() method.
+cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
+
+# Create table as per requirement
+sql = """CREATE TABLE EMPLOYEE (
+         FIRST_NAME  CHAR(20) NOT NULL,
+         LAST_NAME  CHAR(20),
+         AGE INT,
+         SEX CHAR(1),
+         INCOME FLOAT )"""
+
+cursor.execute(sql)
+
+# disconnect from server
+db.close()
+INSERT Operation:
+INSERT operation is required when you want to create your records into a database table.
+
+Example:
+Following is the example, which executes SQL INSERT statement to create a record into EMPLOYEE table:
+
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Prepare SQL query to INSERT a record into the database.
+sql = """INSERT INTO EMPLOYEE(FIRST_NAME,
+         LAST_NAME, AGE, SEX, INCOME)
+         VALUES ('Mac', 'Mohan', 20, 'M', 2000)"""
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+except:
+   # Rollback in case there is any error
+   db.rollback()
+
+# disconnect from server
+db.close()
+Above example can be written as follows to create SQL queries dynamically:
+
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Prepare SQL query to INSERT a record into the database.
+sql = "INSERT INTO EMPLOYEE(FIRST_NAME, \
+       LAST_NAME, AGE, SEX, INCOME) \
+       VALUES ('%s', '%s', '%d', '%c', '%d' )" % \
+       ('Mac', 'Mohan', 20, 'M', 2000)
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+except:
+   # Rollback in case there is any error
+   db.rollback()
+
+# disconnect from server
+db.close()
+Example:
+Following code segment is another form of execution where you can pass parameters directly:
+
+..................................
+user_id = "test123"
+password = "password"
+
+con.execute('insert into Login values("%s", "%s")' % \
+             (user_id, password))
+..................................
+READ Operation:
+READ Operation on any databasse means to fetch some useful information from the database.
+
+Once our database connection is established, we are ready to make a query into this database. We can use either fetchone() method to fetch single record or fetchall() method to fetech multiple values from a database table.
+
+fetchone(): This method fetches the next row of a query result set. A result set is an object that is returned when a cursor object is used to query a table.
+
+fetchall(): This method fetches all the rows in a result set. If some rows have already been extracted from the result set, the fetchall() method retrieves the remaining rows from the result set.
+
+rowcount: This is a read-only attribute and returns the number of rows that were affected by an execute() method.
+
+Example:
+Following is the procedure to query all the records from EMPLOYEE table having salary more than 1000:
+
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Prepare SQL query to INSERT a record into the database.
+sql = "SELECT * FROM EMPLOYEE \
+       WHERE INCOME > '%d'" % (1000)
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Fetch all the rows in a list of lists.
+   results = cursor.fetchall()
+   for row in results:
+      fname = row[0]
+      lname = row[1]
+      age = row[2]
+      sex = row[3]
+      income = row[4]
+      # Now print fetched result
+      print "fname=%s,lname=%s,age=%d,sex=%s,income=%d" % \
+             (fname, lname, age, sex, income )
+except:
+   print "Error: unable to fecth data"
+
+# disconnect from server
+db.close()
+This will produce the following result:
+
+fname=Mac, lname=Mohan, age=20, sex=M, income=2000
+Update Operation:
+UPDATE Operation on any databasse means to update one or more records, which are already available in the database. Following is the procedure to update all the records having SEX as 'M'. Here, we will increase AGE of all the males by one year.
+
+Example:
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Prepare SQL query to UPDATE required records
+sql = "UPDATE EMPLOYEE SET AGE = AGE + 1
+                          WHERE SEX = '%c'" % ('M')
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+except:
+   # Rollback in case there is any error
+   db.rollback()
+
+# disconnect from server
+db.close()
+DELETE Operation:
+DELETE operation is required when you want to delete some records from your database. Following is the procedure to delete all the records from EMPLOYEE where AGE is more than 20:
+
+Example:
+#!/usr/bin/python
+
+import MySQLdb
+
+# Open database connection
+db = MySQLdb.connect("localhost","testuser","test123","TESTDB" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Prepare SQL query to DELETE required records
+sql = "DELETE FROM EMPLOYEE WHERE AGE > '%d'" % (20)
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+except:
+   # Rollback in case there is any error
+   db.rollback()
+
+# disconnect from server
+db.close()
+Performing Transactions:
+Transactions are a mechanism that ensures data consistency. Transactions should have the following four properties:
+
+Atomicity: Either a transaction completes or nothing happens at all.
+
+Consistency: A transaction must start in a consistent state and leave the system in a consistent state.
+
+Isolation: Intermediate results of a transaction are not visible outside the current transaction.
+
+Durability: Once a transaction was committed, the effects are persistent, even after a system failure.
+
+The Python DB API 2.0 provides two methods to either commit or rollback a transaction.
+
+Example:
+You already have seen how we have implemented transations. Here is again similar example:
+
+# Prepare SQL query to DELETE required records
+sql = "DELETE FROM EMPLOYEE WHERE AGE > '%d'" % (20)
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+except:
+   # Rollback in case there is any error
+   db.rollback()
+COMMIT Operation:
+Commit is the operation, which gives a green signal to database to finalize the changes, and after this operation, no change can be reverted back.
+
+Here is a simple example to call commit method.
+
+ db.commit()
+ROLLBACK Operation:
+If you are not satisfied with one or more of the changes and you want to revert back those changes completely, then use rollback() method.
+
+Here is a simple example to call rollback() method.
+
+ db.rollback()
+Disconnecting Database:
+To disconnect Database connection, use close() method.
+
+ db.close()
+If the connection to a database is closed by the user with the close() method, any outstanding transactions are rolled back by the DB. However, instead of depending on any of DB lower level implementation details, your application would be better off calling commit or rollback explicitly.
+
+Handling Errors:
+There are many sources of errors. A few examples are a syntax error in an executed SQL statement, a connection failure, or calling the fetch method for an already canceled or finished statement handle.
+
+The DB API defines a number of errors that must exist in each database module. The following table lists these exceptions.
+
+Exception	Description
+Warning	Used for non-fatal issues. Must subclass StandardError.
+Error	Base class for errors. Must subclass StandardError.
+InterfaceError	Used for errors in the database module, not the database itself. Must subclass Error.
+DatabaseError	Used for errors in the database. Must subclass Error.
+DataError	Subclass of DatabaseError that refers to errors in the data.
+OperationalError	Subclass of DatabaseError that refers to errors such as the loss of a connection to the database. These errors are generally outside of the control of the Python scripter.
+IntegrityError	Subclass of DatabaseError for situations that would damage the relational integrity, such as uniqueness constraints or foreign keys.
+InternalError	Subclass of DatabaseError that refers to errors internal to the database module, such as a cursor no longer being active.
+ProgrammingError	Subclass of DatabaseError that refers to errors such as a bad table name and other things that can safely be blamed on you.
+NotSupportedError	Subclass of DatabaseError that refers to trying to call unsupported functionality.
+Your Python scripts should handle these errors, but before using any of the above exceptions, make sure your MySQLdb has support for that exception. You can get more information about them by reading the DB API 2.0 specification.
+

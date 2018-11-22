@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <style>
+
+            ul{list-style-type:none;
+            margin:0;padding:0;width:26%;top:0;
+            background-color:#C0C0C0;height:100%;overflow:auto;position:fixed}
+            li a {display:block;color:#FFFFFFF;padding:8px 0 8px 8px;text-decoration:none;
+            font-family:Algerian;}
+            li a.active{background-color:steelblue;color:#e1cd24;}
+            li a:hover:not(.active){background-color:#2c79b4;color:#e1cd24;}
+            footer{background-color:#2c79b4;color:#e1cd24;down:0;
+            text-align:center;padding:5px 5px;}
+
+
+        </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bp{padding:10px;margin:30px;}ootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+    <body style="background-color:white">
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style='color:#e1cd24' href="/signup">Learn Python with Ellie</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %}
+                        <li><a style='color:#e1cd24' href="{{ url_for('logout') }}">Log out</a></li>
+                    {% else %}
+                        <li><a style='color:#e1cd24' href="{{ url_for('login') }}">Log in</a></li>
+                        </ul>
+                                    </div>
+        </nav>
+
+        <ul>
+            <li><a class="active" href="#Home"> Home </a></li>
+
+      <li> <a href="/trial">Trial</a></li>
+            <li> <a href="/trial">Trial</a></li>
+            <li> <a href="/trial">Trial</a></li>
+            <li> <a href="/trial">News</a></li>
+    </ul>
+
+                    <br>
+
+
+        <div class="container">
+            {% for comment in comments %}
+                <div class="row" style="margin-bottom: 1ex">
+                    <div style="font-size:100%;color:#2c79b4;">
+                        {{ comment.content }}
+                    </div>
+                    <div>
+                        <small>
+                            Posted
+                            {% if comment.posted %}
+                                {{ comment.posted.strftime("%A, %d %B %Y at %H:%M") }}
+                            {% else %}
+                                at an unknown time
+                            {% endif %}
+                            by
+                            {% if comment.commenter %}
+                                {{ comment.commenter.username }}
+                            {% else %}
+                                anonymous
+                            {% endif %}
+                        </small>
+                        {% endfor %}
+
+            {% if current_user.is_authenticated %}
+                <div class="row">
+                    <form action="/comment" method="post">
+                        <textarea name="contents" placeholder="Enter a comment" class="form-control"></textarea>
+                        <input type="submit" class="btn btn-success" value="Post comment">
+                    </form>
+                </div>
+            {% endif %}
+
+                    </div>
+
+                </div>
+        </div><!-- /.container -->
+    <footer>
+        ©PythonwithEllie 2018
+    </footer>
+
+    </body>
+</html>

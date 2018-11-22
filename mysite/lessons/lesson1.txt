@@ -1,0 +1,1314 @@
+The rules applied to sample codes are as follows (its only one):
+
+<strong>The syntax used is that of Python 3 but whenever there is a difference in the syntax of Python 3 and 2, it will be stated
+for beginners to quickly learn the differences between the two versions without having to read any other material on that.</strong>
+
+With that in mind, let's Python.
+
+
+<h4>Python Tuples</h4>
+A <strong>tuple</strong> is a sequence of immutable Python objects. Tuples are sequences, just like lists.
+The only difference is that tuples can't be changed i.e., tuples are
+immutable and tuples use parentheses and lists use square brackets.
+
+Creating a tuple is as simple as putting different comma-separated values and optionally you can put these comma-separated values between parentheses also. For example:
+<pre>
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5 )
+tup3 = "a", "b", "c", "d"
+</pre>
+The empty tuple is written as two parentheses containing nothing:
+
+<strong>tup1</strong> = ();
+To write a tuple containing a single value you have to include a comma, even though there is only one value:
+
+tup1 = (50,);
+Like string indices, tuple indices start at 0, and tuples can be sliced, concatenated and so on.
+
+Accessing Values in Tuples:
+To access values in tuple, use the square brackets for slicing along with the index or indices to obtain value available at that index. Following is a simple example:
+
+
+<pre>
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5, 6, 7 )
+
+print "tup1[0]: ", tup1[0]
+print "tup2[1:5]: ", tup2[1:5]
+When the above code is executed, it produces the following result:
+
+tup1[0]:  physics
+tup2[1:5]:  [2, 3, 4, 5]
+</pre>
+
+Updating Tuples:
+Tuples are immutable which means you cannot update or change the values of tuple elements.
+You are able to take portions of existing tuples to create new tuples as the following example demonstrates:
+
+#!/usr/bin/python
+
+tup1 = (12, 34.56);
+tup2 = ('abc', 'xyz');
+
+# Following action is not valid for tuples
+# tup1[0] = 100;
+
+# So let's create a new tuple as follows
+tup3 = tup1 + tup2;
+print tup3;
+When the above code is executed, it produces the following result:
+
+(12, 34.56, 'abc', 'xyz')
+Delete Tuple Elements:
+Removing individual tuple elements is not possible. There is, of course,
+nothing wrong with putting together another tuple with the undesired elements discarded.
+
+To explicitly remove an entire tuple, just use the del statement. Following is a simple example:
+
+#!/usr/bin/python
+
+tup = ('physics', 'chemistry', 1997, 2000);
+
+print tup;
+del tup;
+print "After deleting tup : "
+print tup;
+This will produce following result. Note an exception raised, this is because after del tup tuple does not exist any more:
+
+('physics', 'chemistry', 1997, 2000)
+After deleting tup :
+Traceback (most recent call last):
+  File "test.py", line 9, in <module>
+    print tup;
+NameError: name 'tup' is not defined
+Basic Tuples Operations:
+Tuples respond to the + and * operators much like strings; they mean concatenation and repetition here too, except that the result is a new tuple, not a string.
+
+In fact, tuples respond to all of the general sequence operations we used on strings in the prior chapter :
+
+Python Expression	Results	Description
+len((1, 2, 3))	3	Length
+(1, 2, 3) + (4, 5, 6)	(1, 2, 3, 4, 5, 6)	Concatenation
+('Hi!',) * 4	('Hi!', 'Hi!', 'Hi!', 'Hi!')	Repetition
+3 in (1, 2, 3)	True	Membership
+for x in (1, 2, 3): print x,	1 2 3	Iteration
+Indexing, Slicing, and Matrixes:
+Because tuples are sequences, indexing and slicing work the same way for tuples as they do for strings. Assuming following input:
+
+L = ('spam', 'Spam', 'SPAM!')
+
+
+Python Expression	Results	Description
+L[2]	'SPAM!'	Offsets start at zero
+L[-2]	'Spam'	Negative: count from the right
+L[1:]	['Spam', 'SPAM!']	Slicing fetches sections
+No Enclosing Delimiters:
+Any set of multiple objects, comma-separated, written without identifying symbols, i.e., brackets for lists, parentheses for tuples, etc., default to tuples, as indicated in these short examples:
+
+#!/usr/bin/python
+
+print 'abc', -4.24e93, 18+6.6j, 'xyz';
+x, y = 1, 2;
+print "Value of x , y : ", x,y;
+When the above code is executed, it produces the following result:
+
+abc -4.24e+93 (18+6.6j) xyz
+Value of x , y : 1 2
+Built-in Tuple Functions:
+Python includes the following tuple functions:
+
+SN	Function with Description
+1	.cmp(tuple1, tuple2)
+Compares elements of both tuples.
+
+2	.len(tuple)
+Gives the total length of the tuple.
+
+3	.max(tuple)
+Returns item from the tuple with max value.
+
+4	.min(tuple)
+Returns item from the tuple with min value.
+
+5	.tuple(seq)
+Converts a list into tuple.
+
+
+
+
+
+Python Numbers
+Number data types store numeric values. They are immutable data types,
+which means that changing the value of a number data type results in a newly allocated object.
+It means numbers when created cannot be altered, an alteration due to an operation on
+or a manipulation of the number only creates a new number.
+
+To create a number in Python simply assign a value to a name.
+Number objects are created when you assign a value to them.
+For example:
+<pre>
+<code>
+>>var1 = 1
+>>var2 = 10
+</code>
+You can also delete the reference to a number object by using the del statement.
+The syntax of the del statement is:
+
+>>del var1[,var2[,var3[....,varN]]]]
+You can delete a single object or multiple objects by using the del statement.
+For example:
+
+>>del var
+>>del var_a, var_b
+</pre>
+Python supports four different numerical types:
+
+int (signed integers):
+often called just integers or ints, are positive or negative whole numbers with no decimal point.
+
+long (long integers ): or longs
+are integers of unlimited size, written like integers and followed by an uppercase or lowercase L.
+
+float (floating point real values) : or floats,
+represent real numbers and are written with a decimal point dividing the integer and fractional parts. Floats may also be in scientific notation, with E or e indicating the power of 10 (2.5e2 = 2.5 x 102 = 250).
+
+complex (complex numbers) :
+are of the form a + bJ, where a and b are floats and J (or j) represents the square root of -1 (which is an imaginary number).
+a is the real part of the number, and b is the imaginary part. Complex numbers are not used much in Python programming.
+
+Examples:
+Here are some examples of numbers:
+<pre>
+
+int	long	float	complex
+10	51924361L	0.0	3.14j
+100	-0x19323L	15.20	45.j
+-786	0122L	-21.9	9.322e-36j
+080	0xDEFABCECBDAECBFBAEL	32.3+e18	.876j
+-0490	535633629843L	-90.	-.6545+0J
+-0x260	-052318172735L	-32.54e100	3e+26J
+0x69	-4721885298529L	70.2-E12	4.53e-7j
+</pre>
+Python allows you to use a lowercase L with long, but it is recommended that you use
+only an uppercase L to avoid confusion with the number 1. Python displays long integers with an uppercase L.
+
+A complex number consists of an ordered pair of real floatingpoint numbers denoted
+by a + bj, where a is the real part and b is the imaginary part of the complex number.
+
+<h5>Number Type Conversion<h/5>
+Python converts numbers internally in an expression containing
+mixed types to a common type for evaluation. But sometimes,
+you'll need to coerce a number explicitly from one type to another to satisfy
+the requirements of an operator or function parameter.
+
+In simple terms, when you are doing calculation involving numbers in
+Python, ython will convert some number types to others for a uniform calculation
+but in other cases, you will have to do the conversion yourself.
+The language therefore provides the following ways to convert from one type to another:
+
+<pre>
+Type int(x)to convert x to a plain integer.
+
+Type long(x) to convert x to a long integer.
+
+Type float(x) to convert x to a floating-point number.
+
+Type complex(x) to convert x to a complex number with real part x and imaginary part zero.
+
+Type complex(x, y) to convert x and y to a complex number with real part x and imaginary part y. x and y are numeric expressions
+</pre>
+
+Mathematical Functions:
+Python includes following functions that perform mathematical calculations.
+<pre>
+Function	Returns ( description )
+
+abs(x)	The absolute value of x: the (positive) distance between x and zero.
+
+ceil(x)	The ceiling of x: the smallest integer not less than x
+
+cmp(x, y)	-1 if x < y, 0 if x == y, or 1 if x > y
+
+exp(x)	The exponential of x: ex
+
+fabs(x)	The absolute value of x.
+
+floor(x)	The floor of x: the largest integer not greater than x
+
+log(x)	The natural logarithm of x, for x> 0
+
+log10(x)	The base-10 logarithm of x for x> 0 .
+
+max(x1, x2,...)	The largest of its arguments: the value closest to positive infinity
+
+min(x1, x2,...)	The smallest of its arguments: the value closest to negative infinity
+
+modf(x)	The fractional and integer parts of x in a two-item tuple.
+Both parts have the same sign as x. The integer part is returned as a float.
+
+pow(x, y)	The value of x**y.
+
+round(x [,n])	x rounded to n digits from the decimal point.
+Python rounds away from zero as a tie-breaker: round(0.5) is 1.0 and round(-0.5) is -1.0.
+sqrt(x)	The square root of x for x > 0
+</pre>
+Random Number Functions:
+
+Random numbers are used for games, simulations, testing, security, and privacy applications.
+Python includes following functions that are commonly used.
+<pre>
+Function	Description
+choice(seq)	A random item from a list, tuple, or string.
+
+randrange ([start,] stop [,step])	A randomly selected element from range(start, stop, step)
+
+random()	A random float r, such that 0 is less than or equal to r and r is less than 1
+
+seed([x])	Sets the integer starting value used in generating random numbers.
+Call this function before calling any other random module function. Returns None.
+
+shuffle(lst)	Randomizes the items of a list in place. Returns None.
+
+uniform(x, y)	A random float r, such that x is less than or equal to r and r is less than y
+</pre>
+Trigonometric Functions:
+
+Python includes following functions that perform trigonometric calculations.
+<pre>
+Function	Description
+
+acos(x)	Return the arc cosine of x, in radians.
+
+asin(x)	Return the arc sine of x, in radians.
+
+atan(x)	Return the arc tangent of x, in radians.
+
+atan2(y, x)	Return atan(y / x), in radians.
+
+cos(x)	Return the cosine of x radians.
+
+hypot(x, y)	Return the Euclidean norm, sqrt(x*x + y*y).
+
+sin(x)	Return the sine of x radians.
+
+tan(x)	Return the tangent of x radians.
+
+degrees(x)	Converts angle x from radians to degrees.
+
+radians(x)	Converts angle x from degrees to radians.
+</pre>
+Mathematical Constants:
+
+The module also defines two mathematical constants:
+
+Constants	Description
+<pre>
+pi	The mathematical constant pi.
+e	The mathematical constant e.
+</pre>
+
+
+STRINGS
+
+Let's get an introduction to strings.
+
+Strings are always chain of characters bounded by either double quotes or single quotes in Python,
+a string can also be just a character.
+
+
+"Hello World"
+"12345"
+"False"
+'my mom is going to school'
+Are all strings.
+
+In order to tell the computer to output a string to the screen,
+just write out *print* and between your parenthesis/brackets, type your string.
+This applies to all the data types we will look at.
+
+Accessing Strings
+
+To obtain substrings, indexing or slicing is used. Square brackets are used and the position (index) of the substring or substrings is
+entered within the square brackets; Python then returns the substring or substrings found at this index.
+
+Put this behind your mind, Python treats strings as lists when it comes to
+slicing and indexing.
+
+Let's look at a practical example:
+
+From our previous lesson Variable Naming, let's give our fourth string example a name and
+then work on it using indexing and slicing.
+
+<code> sentence = 'my mom is going to school'</code>
+NB: I gave it the name sentence which is reasonable enough for what the string says.
+
+This string which we have just given the name sentence has a length not equal to the number of
+letter in it but every character counts. Space is also a character, so guess what the length or number of characters in it will be.
+
+We can easily do this by using a method called len on the string sentence.
+
+<code>print(len(senetence))</code>
+
+This should print out >> 25
+
+Now, say we want to get only the first letter of the sentence, what do we do.
+
+A knowledge of how Python numbers the position of each substring is therefore required.
+
+How Python gives indexes:
+Python gives the first letter in a string the position(index) 0 and the next 0+1 = 1 and the next 0+1+1=2
+and it continues so.
+Since the first letter is not 1 that means our string's last member will have the index 24, this can also be accessed
+using the index -1.
+This means when counting from left to right, Python starts from 0 but when counting from right to left Python begins from -1,-2 till it gets to
+the first.
+
+Back to our problem, we want to get the first letter of the string called sentence.
+
+We use square brackets just after the string or the string's name and put the index of the letter we waant
+between the square brackets:
+
+<code>print(sentence[0])</code>
+This should print out the first letter 'm' to the screen for you.
+
+So with that you can get any of the letters from the string, but what if you put in 25?
+
+Our string *ranges* from 0-24 so putting in 25 will mean you are asking for a letter that is
+not in the string and therefore out of the range.
+This will raise an error which we shall learn to handle.
+
+Another problem.
+What if we waanted to get 'mom' or any other word from the string.
+
+Here comes slicing, we specify the beginning index (that is, where we want Python to put the knife first), separated by a colon(:) and
+the last index (not inclusive), that is the border. All this should hapen in the square brackets.
+
+So to get 'mom' printed out from 'my mom is going to school':
+The first 'm' standds at index 3 and the last 'm' stands at index 5, but we want it to be included so we give the next
+index as the border (which is 6).
+
+<code>print(sentence[3:6])</code>
+
+This should print out >> mom
+
+STRING OPERATIONS
+
+If you want Python to begin slicing the list from the beginning, you do not need to begin with 0,
+you can begin like this:
+<code>print(sentence[ :6]))</code>
+
+This should print out:
+>> my mom
+
+The same way if you want Python to begin from somewhere say after 'mom' to the very last
+letter, then you can do this:
+<code>print(senetence[6: ])</code>
+
+This should give you:
+>> is going to school
+
+Skipping some substrings
+
+You can also specify steps at which Python should slice a list using a third index called the step.
+
+So generally, to slice a string:
+
+<code>ListName[begin:end:step]</code>
+
+<code>print(sentence[ : : 2])</code>
+ This means Python should print the first letter, jump to the next 2 and print that and jump
+ to the next 2 and should continue to do so until it gets to the end.
+
+ This will be very useful when working with lists like a list off ccounting numbers
+ and you want to get only even numbers or odd numbers.
+
+STRING METHODS
+
+Strings can further be manipulated using mathematical operations and built-in method.
+
+You can attach two strings together by using the + operator:
+
+<code>'my mom is '+'going to school'</code>
+will produce (Please note the space at the end of 'is'):
+>> my mom is going to school
+
+You can also repeat a string using the * operator:
+<code>'my mom ' * 3
+Should produce:
+>> my mom my mom mymom
+
+To find out if a character or characters ooccur in a string, you could use *in* or *not in* keywords:
+
+This will be better understood under conditioning your code section. But for now:
+
+<code>
+if 'm' in sentence:
+    print("m exists")
+else:
+    print("nope, no m")
+    </code>
+Python also provides built-in methods that can be used to manipulate strings in other ways.
+
+These methods are called on the string in question and if arguments are required for the method to properly execute,
+you provide those arguments.
+You must call the string and then bring a dot(.) and the name of the method after which comes paranthesis or round brackets in
+which arguments are provided if any. The paranthesis are still brought even if there were no arguments to provide.
+
+1. .capitalize()
+This will capilize the first letter of the string.
+
+2. .center(width,filchar)
+Returns a space-padded string with the original string centered to a total of width given.
+
+3. .count(substring,begin=0,end=len(string))
+This counts how many times a substring occurs within the original string. You can specify where Python should start looking from
+using the begin argument and the end, where Python should stop looking. These two howver default to begin being the start and end being the end
+of the string.
+
+4..decode(encoding='UTF-8',errors='strict')
+
+4	decode(encoding='UTF-8',errors='strict')
+Decodes the string using the codec registered for encoding. encoding defaults to the default string encoding.
+
+5	encode(encoding='UTF-8',errors='strict')
+Returns encoded string version of string; on error, default is to raise a ValueError unless errors is given with 'ignore' or 'replace'.
+
+6	endswith(suffix, beg=0, end=len(string))
+Determines if string or a substring of string (if starting index beg and ending index end are given) ends with suffix; returns true if so and false otherwise
+
+7	expandtabs(tabsize=8)
+Expands tabs in string to multiple spaces; defaults to 8 spaces per tab if tabsize not provided
+
+8	find(str, beg=0 end=len(string))
+Determine if str occurs in string or in a substring of string if starting index beg and ending index end are given returns index if found and -1 otherwise
+
+9	index(str, beg=0, end=len(string))
+Same as find(), but raises an exception if str not found
+
+10	isalnum()
+Returns true if string has at least 1 character and all characters are alphanumeric and false otherwise
+
+11	isalpha()
+Returns true if string has at least 1 character and all characters are alphabetic and false otherwise
+
+12	isdigit()
+Returns true if string contains only digits and false otherwise
+
+13	islower()
+Returns true if string has at least 1 cased character and all cased characters are in lowercase and false otherwise
+
+14	isnumeric()
+Returns true if a unicode string contains only numeric characters and false otherwise
+
+15	isspace()
+Returns true if string contains only whitespace characters and false otherwise
+
+16	istitle()
+Returns true if string is properly "titlecased" and false otherwise
+
+17	isupper()
+Returns true if string has at least one cased character and all cased characters are in uppercase and false otherwise
+
+18	join(seq)
+Merges (concatenates) the string representations of elements in sequence seq into a string, with separator string
+
+19	len(string)
+Returns the length of the string
+
+20	ljust(width[, fillchar])
+Returns a space-padded string with the original string left-justified to a total of width columns
+
+21	lower()
+Converts all uppercase letters in string to lowercase
+
+22	lstrip()
+Removes all leading whitespace in string
+
+23	maketrans()
+Returns a translation table to be used in translate function.
+
+24	max(str)
+Returns the max alphabetical character from the string str
+
+25	min(str)
+Returns the min alphabetical character from the string str
+
+26	replace(old, new [, max])
+Replaces all occurrences of old in string with new or at most max occurrences if max given
+
+27	rfind(str, beg=0,end=len(string))
+Same as find(), but search backwards in string
+
+28	rindex( str, beg=0, end=len(string))
+Same as index(), but search backwards in string
+29	rjust(width,[, fillchar])
+Returns a space-padded string with the original string right-justified to a total of width columns.
+
+30	rstrip()
+Removes all trailing whitespace of string
+
+31	split(str="", num=string.count(str))
+Splits string according to delimiter str (space if not provided) and returns list of substrings; split into at most num substrings if given
+
+32	splitlines( num=string.count('\n'))
+Splits string at all (or num) NEWLINEs and returns a list of each line with NEWLINEs removed
+
+33	startswith(str, beg=0,end=len(string))
+Determines if string or a substring of string (if starting index beg and ending index end are given) starts with substring str; returns true if so and false otherwise
+
+34	strip([chars])
+Performs both lstrip() and rstrip() on string
+
+35	swapcase()
+Inverts case for all letters in string
+
+36	title()
+Returns "titlecased" version of string, that is, all words begin with uppercase and the rest are lowercase
+
+37	translate(table, deletechars="")
+Translates string according to translation table str(256 chars), removing those in the del string
+
+38	upper()
+Converts lowercase letters in string to uppercase
+
+39	zfill (width)
+Returns original string leftpadded with zeros to a total of width characters; intended for numbers, zfill() retains any sign given (less one zero)
+
+40	isdecimal()
+Returns true if a unicode string contains only decimal characters and false otherwise
+
+
+
+
+STRING FORMATTING
+
+One of Python's coolest features is the string format operator %.
+This operator is unique to strings and makes up for the pack of having functions
+from C's printf() family. Following is a simple example:
+
+
+
+<code>print ("My name is %s and weight is %d kg!") % ('Zara', 21)</code>
+
+When the above code is executed, it produces the following result:
+
+>>My name is Zara and weight is 21 kg!
+Here is the list of complete set of symbols which can be used along with %:
+
+
+Symbol	Functionality
+*	argument specifies width or precision
+-	left justification
++	display the sign
+<sp>	leave a blank space before a positive number
+#	add the octal leading zero ( '0' ) or hexadecimal leading '0x' or '0X', depending on whether 'x' or 'X' were used.
+0	pad from left with zeros (instead of spaces)
+%	'%%' leaves you with a single literal '%'
+(var)	mapping variable (dictionary arguments)
+m.n.	m is the minimum total width and n is the number of digits to display after the decimal point (if appl.)
+
+TRIPPLE QUOTES
+
+Python's triple quotes comes to the rescue by allowing strings to span multiple lines,
+including verbatim NEWLINEs, TABs, and any other special characters.
+
+The syntax for triple quotes consists of three consecutive single or double quotes.
+
+para_str = """this is a long string that is made up of
+several lines and non-printable characters such as
+TAB ( \t ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [ \n ], or just a NEWLINE within
+the variable assignment will also show up.
+"""
+print para_str;
+When the above code is executed, it produces the following result.
+Note how every single special character has been converted to its printed form,
+right down to the last NEWLINE at the end of the string between the "up." and closing triple quotes.
+
+Also note that NEWLINEs occur either with an explicit carriage return at the end of a line or its escape code (\n):
+
+this is a long string that is made up of
+several lines and non-printable characters such as
+TAB (    ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [
+ ], or just a NEWLINE within
+the variable assignment will also show up.
+Raw strings don't treat the backslash as a special character at all. Every character you put into a raw string stays the way you wrote it:
+
+
+
+<code>print ('C:\\nowhere')</code>
+When the above code is executed, it produces the following result:
+
+>>C:\nowhere
+
+Now let's make use of raw string.
+We would put expression in r'expression' as follows:
+
+
+
+<code>print (r'C:\\nowhere')</code>
+When the above code is executed, it produces the following result:
+
+>>C:\\nowhere
+UNICODE STRINGS
+Normal strings in Python are stored internally as 8-bit ASCII,
+while Unicode strings are stored as 16-bit Unicode. This allows for a more varied set of characters,
+including special characters from most languages in the world. I'll restrict my treatment of Unicode strings to the following:
+
+
+<code>print (u'Hello, world!')</code>
+When the above code is executed, it produces the following result:
+
+>>Hello, world!
+As you can see, Unicode strings use the prefix u, just as raw strings use the prefix r.
+
+
+
+LISTS
+
+Python's list is another datatype that can be used to keep other basic datatypes in a fairly organised manner. This is because members of a list
+are given position numbers by the Python interpreter and therefore can be accessed using their positions called indexes.
+
+To define a python list:
+listname = [first_member,second_member,...]
+
+These members can be any of the following datatypes:
+Boolean
+Number
+String
+List
+Tuple
+Dictionary
+
+
+List Indexing
+
+Python assigns integers to the position of the members in the list.
+The first_member gets the index 0, the second_member gets the index 1 and so on Python adds 1 to the previous index to get the index
+of the current member.
+Since a list can contain a lot of members at once, the last member is referenced -1 to make it easier to access.
+
+
+
+
+
+Lists are quite interesting and can be used to achieve a lot of things.
+A list can contain any data type and even itself, a list is like a universal set that harbours subsets.
+
+*Indexing Vs. Slicing Lists*
+
+When you create a list in python, python gives a position number to each item in the list depending on
+where it appears in the list, the numbering is done
+from 0 to the last item (n-1), where n is the number if items in the list.
+So, if there are 10 items in a list, the first item will take position(index) 0 and the last item will take (10-1) = 9.
+
+You can therefore request Python to give you a particular item from the list by specifying it's index to Python - indexing
+
+You can also ask Python to give you items from a certain point to a certain point,
+you can even specify if Python should jump over particular ones, this is called list slicing.
+
+
+*The Program*
+
+My_list = ['hello', 2,3.6,True]
+
+#Let's call print
+print(My_list)
+
+#Now let's specify some index
+print(My_list[3])
+
+#This should print the
+#fourth item in the
+#list which is at index 3.
+
+#Now let's slice
+
+print(My_list[0:3])
+
+#This should print from the first
+#item to the third item,
+#leaving out the one at
+#index 3
+
+
+*End of Program*
+
+*Some Explanations*
+
+When you want Python to print from the beginning of the list, you don't need to specify the 0, just do this list_name [ : end index here].
+
+If you want Python to print out every member of the list but at a certain step, then do this:
+list_name[ : :step]
+
+If your step was 2, then Python will print the first item and jump to the third and jump to the fifth, that's a smart way print out odd number is your list is made of counting numbers.
+
+You can simply ask for a reverse list by making your step -1, this will tell Pytjon to print the last item first and go backwards.
+
+Like this:
+
+list_name[ : : -1]
+
+
+Python should print out a reverse list.
+
+*NB:* Python considers strings as lists, so you can actually get parts of a string using the same methods and you can be able to reverse strings the same way.
+
+*Let's try this*
+Create a list of counting numbers from 0 to 21, extract a reverse of even numbers from it.
+Python should print out a reverse list.
+
+*NB:* Python considers strings as lists, so you can actually get parts of a string using the same methods and you can be able to reverse strings the same way.
+
+*Let's try this*
+Create a list of counting numbers from 0 to 21, extract a reverse of even numbers from it.
+
+
+
+
+
+*How to take Input from user.*
+
+When programming, you will have to process user data and return information to the user, you take user name, age, email and a lot more for something particular.
+
+if you were programming on the web, you will use forms(boxes) that the user will fill and then you collect and store or process the data.
+
+Currently, we are programming using the Console, so how do we take input from our users.
+
+*raw_input()  Vs.  input()*
+
+If you are using Python version 2.x then this is how you take input from the user:
+
+raw_input("prompt:")
+
+that's all you need to take the input which is processed as a string data type.
+
+If you are using Python version 3.x, there has been a change to how input is taken in this version, it's even simpler:
+
+input("prompt:")
+
+any input taken in that form will be processed by Python as a string, you can however do a conversion by applying the desired data type to it.
+
+so let's take an input from the user which is his/her age and since Python is going to look at the age as a string, we want to process it into an integer.
+
+so let's declare a variable that will harbour the user input (I'm naming the variable 'user')
+
+
+
+*The Program*
+#we are taking user input
+
+#Version 2.x
+user = raw_input("Please enter your age:")
+
+#version 3.x
+user = input("Please enter your age:")
+
+
+#Let's confirm the data
+#type after user entry
+
+print(type(user))
+
+
+
+# let's convert whatever the #user inputs
+#we are assuming he will #enter a number
+#so we are recreating the #variable 'user'
+#and storing our new #conversion in it
+
+user=int(user)
+
+#now let's see the new data #type
+print (type(user))
+
+#Let's do other #conversions,there might be
+#errors with some because  #the conversion
+#may not be possible due to the data type
+
+user = float(user)
+
+user = list(user)
+
+#Try out some other data types and note
+#The errors.
+
+
+
+
+End of Program.
+
+*Comments*
+So we use # to comment while coding, everything we write after # will not be processed as code. Python ignores it, it is for you the programmer or others who read your code to better understand your code.
+
+*type for data type printing*
+
+And we use 'type' to check the data type of what we are working on.
+
+*This Lesson*
+So what have you learned?
+
+Hopefully, you learnt how to take input from a user and you learnt how to convert from string to any other data type suitable.
+You learnt about commenting too.
+
+
+
+*How to take Input from user.*
+
+When programming, you will have to process user data and return information to the user, you take user name, age, email and a lot more for something particular.
+
+if you were programming on the web, you will use forms(boxes) that the user will fill and then you collect and store or process the data.
+
+Currently, we are programming using the Console, so how do we take input from our users.
+
+*raw_input()  Vs.  input()*
+
+If you are using Python version 2.x then this is how you take input from the user:
+
+raw_input("prompt:")
+
+that's all you need to take the input which is processed as a string data type.
+
+If you are using Python version 3.x, there has been a change to how input is taken in this version, it's even simpler:
+
+input("prompt:")
+
+any input taken in that form will be processed by Python as a string, you can however do a conversion by applying the desired data type to it.
+
+so let's take an input from the user which is his/her age and since Python is going to look at the age as a string, we want to process it into an integer.
+
+so let's declare a variable that will harbour the user input (I'm naming the variable 'user')
+
+
+
+*The Program*
+#we are taking user input
+
+#Version 2.x
+user = raw_input("Please enter your age:")
+
+#version 3.x
+user = input("Please enter your age:")
+
+
+#Let's confirm the data
+#type after user entry
+
+print(type(user))
+
+
+
+# let's convert whatever the #user inputs
+#we are assuming he will #enter a number
+#so we are recreating the #variable 'user'
+#and storing our new #conversion in it
+
+user=int(user)
+
+#now let's see the new data #type
+print (type(user))
+
+#Let's do other #conversions,there might be
+#errors with some because  #the conversion
+#may not be possible due to the data type
+
+user = float(user)
+
+user = list(user)
+
+#Try out some other data types and note
+#The errors.
+
+
+
+
+
+
+
+
+
+
+End of Program.
+
+*Comments*
+So we use # to comment while coding, everything we write after # will not be processed as code. Python ignores it, it is for you the programmer or others who read your code to better understand your code.
+
+*type for data type printing*
+
+And we use 'type' to check the data type of what we are working on.
+
+*This Lesson*
+So what have you learned?
+
+Hopefully, you learnt how to take input from a user and you learnt how to convert from string to any other data type suitable.
+You learnt about commenting too.
+
+
+
+
+
+*Conditions*
+
+Have you ever made a decision based on a condition?
+Okay, even if you have not you might have guessed that before your grade for the semester or term is determined it is based on what you scored in your exam.
+That means whether you got  A or F, it solely depended on what you scored.
+
+So what if we wanted to just enter all the grades of the students into a system and make the system determine the grades for us?
+We can do that easily using Python's conditional clauses (if, elif and else)  and yes there are other ways to do this, in programming, there is not only one way of solving a problem.
+
+*If, elif and else*
+
+So to tell Python to do something once when a condition is true, we use if. When there is more than one condition then the other clauses come on board too.
+
+*Operations*
+We use some mathematical operations to assess the condition, these are:
+< (less than)  - it is used to assess if a value is less than another
+> (greater than)  - it is used to assess if a value is greater than another
+== (double equal to)  - used to assess if a value equal to another
+<= (less than or equal to)  - used to assess if value is less than or equal to another
+>= (greater than or equal to)  - used to assess if a value is greater than or equal to another
+
+and - is used to check two conditions on the same line
+or - to check either conditions on one line
+
+
+
+We are going to write a program to understand the theory.
+This program takes an input that is the student's score and grades the student against 50 being the average score.
+
+The program:
+
+#Taking student score as input
+score = input("Input your score:")
+
+if score ==50:
+    print ("Average")
+elif score < 50:
+    print("Below average")
+else:
+    print("Great, you are above average")
+
+
+End of program.*Conditions*
+
+Have you ever made a decision based on a condition?
+Okay, even if you have not you might have guessed that before your grade for the semester or term is determined it is based on what you scored in your exam.
+That means whether you got  A or F, it solely depended on what you scored.
+
+So what if we wanted to just enter all the grades of the students into a system and make the system determine the grades for us?
+We can do that easily using Python's conditional clauses (if, elif and else)  and yes there are other ways to do this, in programming, there is not only one way of solving a problem.
+
+*If, elif and else*
+
+So to tell Python to do something once when a condition is true, we use if. When there is more than one condition then the other clauses come on board too.
+
+*Operations*
+We use some mathematical operations to assess the condition, these are:
+< (less than)  - it is used to assess if a value is less than another
+> (greater than)  - it is used to assess if a value is greater than another
+== (double equal to)  - used to assess if a value equal to another
+<= (less than or equal to)  - used to assess if value is less than or equal to another
+>= (greater than or equal to)  - used to assess if a value is greater than or equal to another
+
+and - is used to check two conditions on the same line
+or - to check either conditions on one line
+
+
+
+We are going to write a program to understand the theory.
+This program takes an input that is the student's score and grades the student against 50 being the average score.
+
+The program:
+
+#Taking student score as input
+score = input("Input your score:")
+
+if score ==50:
+    print ("Average")
+elif score < 50:
+    print("Below average")
+else:
+    print("Great, you are above average")
+
+
+End of program.
+
+
+
+
+
+There are other ways of conditioning your code apart from the if,elif and else that we looked at.
+You can use loops.
+Do you remember playing one song over and over again?
+If you used virtual DJ or similar music player you will see that you had to place the song in a loop to achieve this. Even on your android device you could place the song on repeat and that song would repeat till your battery died or you put it off.
+Do you see the definition of a loop from that?
+It is repeating a particular action over and over again.
+For Vs While
+Basically, for loops are used to execute actions a number of times - meaning there is an end to a for loop definitely.
+While loops are used to repeat actions indefinitely, however, you can still dey a condition that stops the while loop from executing.
+In fact, *while* using a while loop if you don't set the condition to become False at a point, that code will run forever.
+
+We are going to write a program that plays an imaginary song a number of times using a for loop and then we would see how to use a while loop.
+
+Program:
+song= input("What song should I play?:")
+times = int(input("How many times? :"))
+
+for song in range(1,times,1):
+    print ("Playing "+song)
+print ("Done playing song for ",times," number of times")
+
+count = 0
+while count < times:
+    print ("playing "+ song)
+    count =+1
+
+Both programs behave the same way for now but remove the line "count =+1" and you will see the difference.
+When using a while loop, be careful to update the condition so that your loop will not repeat forever.
+
+Play around with the code to gain deeper knowledge of loops.
+
+
+
+*Functions*
+
+Functions are defined as a block of reusable code.
+It means we want a way to store our code that does a particular activity so that just as we call a variable after storing a value in it,  we can simply call the block of code by name and the activity will be done.
+Those of you who have a math background will notice that functions are from algebra.
+
+Imagine you want to calculate the area of a triangle.
+Every time you are given the dimensions of the triangle, you write down a formula and then plug in the dimensions and then you have your answer.
+Your formula acts as the function or a magic box, plug in the values and then you have your answer but the difference between a formula and a function is that, with formula, you would have to solve after plugging in the values, but with a function the answer can be deduced just after plugging in the values, it's not much of a difference though.
+
+Let's see area of a triangle.
+
+Area = 0.5*base*height
+
+So if you were given the base and height to be 15 and 5 respectively,  then you have:
+Area = 0.5*15*5
+You just need to simplify this.
+
+Now supposed you were given the same type of questions with different dimensions, about 10 questions.
+Every time you need to write the formula and plug in the values for all the 10 questions.
+This is where functions come in handy, you define the formula once and anytime you call the function and plug in your value,  you get your answer.
+
+*Defining functions*
+1.Since we need to call the function, that means we need to give it a name.
+
+2. We need to plug in values with certain formulae, so if needed then we have to make space for where we will plug in the values, this is called parameters or function input
+
+3. Now we define what the function does. For example in area of a triangle,  the function multiplies 0.5 with the input called base and the input called height
+
+4. Now what answer do we want our function to return?  This is called the return value. In the example above,  we would like the function to return the final answer,  that is the Area.
+
+Note: In Python, you can choose not to return anything. Python begins a function with "def"
+The program:
+def area_of_tria(base,height):
+    Area = 0.5*base*height
+    return Area
+
+#Now to call our function
+#and print our function's return value
+print (area_of_tria(15,5))
+
+*End of program.*
+
+*Syntax:*
+1.Begin a function with "def" and provide the function name, choosing a name that easy to associate with what the function does is appropriate.
+2.Bring parentheses after the name of the function and *if* your function takes inputs then specify the inputs it takes in the parentheses.
+If it does not take any input, still bring the brackets but don't specify anything in it.
+3. Bring a colon after the brackets
+4. What the function does follows, this should be on the next line and should be evenly indented
+4. Now bring the keyword "return" and bring what you want the function to return after it.
+
+5. To call a function, write out the name of the function and provide inputs in the brackets if it requires inputs.
+
+To see the return value of the function,  please bring the keyword print before calling the function.
+We shall do more on functions.
+
+*Try yourself:*
+Write a function that takes length as input and returns the perimeter of a square.
+
+
+
+*Some practical ideas behind functions*
+
+The idea of functions from Maths has been extended in programming. Functions are used as switches to performing actions, the name of the function representing the switch.
+So you simply call the function and a predefined code is executed.
+Just like you put on a switch and the light comes on,  a function acts as the switch, the inner wirings of the switch can be compared to the definition of the function suite without which both the switch and the function will do nothing.
+In the English language, functions will be as verbs, which tell the computer to perform a certain action.
+A verb like polish tell you to polish, but in order to polish, you need to know what to polish, this is what we call in programming a parameter, or an argument.
+So in "polish the shoe", the function name is polish and the shoe is the input, parameter or argument which helps one know what exactly to polish.
+You will however agree that,  not a every verb requires an input, a verb like "jump" can be executed without any further information.
+This is what is called void functions in programming, they don't need parameters and might not return anything as well.
+So, you don't need to always supply a parameter, you only do that if your function requires it.
+Engineering might view functions as parts an entity that perform certain tasks and together with other functions make the entity work well.
+Programming is actually engineering in an abstract world, so, when we get to classes we will see how functions come together to help engineer a whole class or entity.
+
+*You can therefore view functions as verbs, functions from algebra, switches and even parts of an object.*
+
+Happy Pythoning.
+
+
+MODULES
+
+A module allows you to logically organize your Python code. Grouping related code into a module makes the code easier to understand and use. A module is a Python object with arbitrarily named attributes that you can bind and reference.
+
+Simply, a module is a file consisting of Python code. A module can define functions, classes and variables. A module can also include runnable code.
+
+Example:
+
+The Python code for a module named anamenormally resides in a file named aname.py. Here's an example of a simple module, support.py
+
+def print_func( par ): print "Hello : ", par return
+
+The import Statement:
+
+You can use any Python source file as a module by executing an import statement in some other Python source file. The import has the following syntax:
+
+import module1[, module2[,... moduleN]
+
+When the interpreter encounters an import statement, it imports the module if the module is present in the search path. A search path is a list of directories that the interpreter searches before importing a module. For example, to import the module hello.py, you need to put the following command at the top of the script:
+
+#!/usr/bin/python # Import module support import support # Now you can call defined function that module as follows support.print_func("Zara")
+
+When the above code is executed, it produces the following result:
+
+Hello : Zara
+
+A module is loaded only once, regardless of the number of times it is imported. This prevents the module execution from happening over and over again if multiple imports occur.
+
+The from...import Statement
+
+Python's from statement lets you import specific attributes from a module into the current namespace. The from...import has the following syntax:
+
+from modname import name1[, name2[, ... nameN]]
+
+For example, to import the function fibonacci from the module fib, use the following statement:
+
+from fib import fibonacci
+
+This statement does not import the entire module fib into the current namespace; it just introduces the item fibonacci from the module fib into the global symbol table of the importing module.
+
+The from...import * Statement:
+
+It is also possible to import all names from a module into the current namespace by using the following import statement:
+
+from modname import *
+
+This provides an easy way to import all the items from a module into the current namespace; however, this statement should be used sparingly.
+
+Locating Modules:
+
+When you import a module, the Python interpreter searches for the module in the following sequences:
+
+The current directory.
+
+If the module isn't found, Python then searches each directory in the shell variable PYTHONPATH.
+
+If all else fails, Python checks the default path. On UNIX, this default path is normally /usr/local/lib/python/.
+
+The module search path is stored in the system module sys as the sys.path variable. The sys.path variable contains the current directory, PYTHONPATH, and the installation-dependent default.
+
+The PYTHONPATH Variable:
+
+The PYTHONPATH is an environment variable, consisting of a list of directories. The syntax of PYTHONPATH is the same as that of the shell variable PATH.
+
+Here is a typical PYTHONPATH from a Windows system:
+
+set PYTHONPATH=c:\python20\lib;
+
+And here is a typical PYTHONPATH from a UNIX system:
+
+set PYTHONPATH=/usr/local/lib/python
+
+
+
+ERRORS
+
+*Errors/Exceptions*
+These are codes that the compiler finds impossible to run due to logic, syntax or semantic errors by the programmer and therefore will raise exception objects.
+
+*A more technical definition*
+An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions. In general, when a Python script encounters a situation that it can't cope with, it raises an exception. An exception is a Python object that represents an error.
+
+When a Python script raises an exception, it must either handle the exception immediately otherwise it would terminate and come out.
+
+
+
+The most annoying part of programming may be encountering errors. This is because sometimes errors are hard to understand
+in some languages but Python's errors are generally English and very much readable.
+Errors can also be frustrating if one has no Idea where they may be originating from.
+Handing errors is therefore an important task while programming because whether you are experienced or not, you will make mistakes and at some point you might feel the computer does not want to run your program but is only interested in telling you the errors you have made.
+Whenever we read through our own programs, we debug and compile the program even before running.
+This I will suggest to be your first step before running any program, debug with your eyes first.
+This reduces the errors and therefore the frustration.
+Now let's handle the errors.
+Python provide ways of handling errors:
+General exception handling and
+Specific error handling.
+
+There are more technical names for these but this is fine, as far you understand the concept.
+
+*General (Generic) error Handling.*
+Any suspended code should be placed withing a *try* and *except* block.
+try:
+    Suspected code here
+except:
+    Code to be executed if there is an error
+
+*Specific Error handling.*
+
+try:
+    Suspected code
+except Specific Exception:
+    Code to execute in the event of that specific         exception.
+
+Let's see an example
+Assume you were dividing a number by 0, you know that is a mathematical error.
+This is called in Python *ZeroDivisionError*
+So we practically want to handle this error.
+We will handle it using both ways.
+
+*The program*
+Ans = 5/0
+print (And)
+try:
+    Ans =5/0
+except:
+    print("There was an error")
+try:
+    Ans=5/0
+except ZeroDivisionError:
+    print("You tried diving by 0")
+
+*End of program.*
+We will look at more on errors.
+Copy and Try the above program out,  the first one without a try and except block will prevent the other from running.
+After that, delete it anytime the rest which have the try and except block and see what happens.
+You can also write another program under those ones to see if it will run or not.
+
+
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+

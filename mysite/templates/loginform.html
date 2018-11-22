@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PythonwithEllie | Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/home/Learn/mysite/static/styl.css" type="text/css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Magra' rel='stylesheet'>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+
+<script type="text/javascript" style="float:right">
+
+    $("#password").password('toggle');
+</script>
+
+<style>
+
+    body{
+  background:url("/static/images/IMG-20180227-WA0019.jpg")top left;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  max-height:100%;
+  max-width:100%;
+  background-size:cover;
+  background-position:center center;
+
+}
+.container{
+  margin: 25px auto;
+  width: device-width;
+  position: relative;
+  height:100%;
+}
+#content{
+  position: relative;
+  width: 100%;
+  height: 440px;
+  margin: 0 auto;
+  padding: 25px 0 0;
+  background: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 1px 0 #fff inset;
+  padding: 25px 0 0;
+  border:1px solid #c4c6ca;
+}
+#content:before,
+#content:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #f9f9f9;
+  border:1px solid #c4c6ca;
+  box-shadow: 0 1px 0 #fff inset;
+  left:-1px;
+  top: 0;
+}
+#content:before{
+  transform:rotate(2deg);
+  z-index:-1;
+}
+#content:after{
+  transform:rotate(-3deg);
+  z-index: -2;
+}
+#content h1{
+  font-family: sans-serif,Arial;
+  font-size: 25px;
+  color: grey;
+  font-weight: bold;
+  letter-spacing: -0.05em;
+}
+#content h1:before,
+#content h1:after{
+    content: "";
+    background: gray;
+    height: 1px;
+    position: absolute;
+    width: 20%;
+    margin: 32px;
+    top: 27px;
+}
+#content h1:before{
+  left: 0;
+}
+#content h1:after{
+  right: 0;
+}
+.wrapper{
+  width: 300px;
+  height: 45px;
+  background: #eae7e7;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  box-shadow: inset 0 0 8px #18d8f1;
+}
+.wrapper input{
+  width: 250px;
+  height: 45px;
+  background: transparent;
+  border:0px;
+  outline: none;
+  font-size: 16px;
+  font-family: sans-serif,Arial;
+  color: #333;
+
+}
+.wrapper .fa{
+  font-size: 20px;
+  color: #808080;
+}
+input[type="submit"]{
+  width: 150px;
+  height: 40px;
+  border-radius: 40px;
+  border: 0px;
+  outline: none;
+  background: rgb(254,231,154);
+  background: -webkit-linear-gradient(top, rgb(23, 217, 236) 0%,rgb(29, 230, 230) 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+  cursor: pointer;
+  color: black;
+  font-family: sans-serif,Arial;
+  font-size:16px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+input[type="submit"]:hover{
+  background: -webkit-linear-gradient(top,  rgb(23, 236, 59) 0%,rgb(36, 236, 53) 100%);
+}
+a{
+  text-decoration: none;
+  font-family: sans-serif,Arial;
+  border-left: -0.05em;
+  font-size:12px;
+  color:#333;
+  margin:10px;
+}
+a:hover{
+  color: gray;
+}
+
+</style>
+<style>
+
+.popup {
+
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+</style>
+<script>
+
+
+function myFunction() {
+  var popup = document.getElementById
+  ('myPopup');
+
+  popup.classList.toggle('show');
+}
+
+</script>
+
+</head>
+
+<body>
+    <div style="height:60px;width:100%;background-color:#00d3ff;font-family:'Bangers';">
+
+        <a style="font-size:20px;width:2%;font-family:'Bangers';" href='#'><i class="fa fa-home"></i>Home</a>
+<a style="font-size:20px;width:2%;font-family:'Bangers';" href='#'><i class="fa fa-user"></i>User</a>
+<a style="font-size:20px;width:2%;font-family:'Bangers';" href='/introduction'><i class="fa fa-book"></i>Course</a>
+        <a style="font-size:20px;width:2%;font-family:'Bangers';" href='#'><i class="fa fa-file"></i>Tricks</a>
+        </div>
+
+<div class="container">
+	<section id="content">
+		<h1>Login Form</h1>
+		{% if error %}
+		<div style="color:red;">
+		    {{error}}
+		</div>
+
+		{% elif success %}
+		<div style="color:green;">
+		    {{success}}
+		</div>
+
+		{% endif %}
+		<form action="/login/" method="POST">
+			<div class="wrapper">
+				<i class="fa fa-user"></i>
+				<input type="text" placeholder="Username" name="username" required/>
+			</div>
+			<div class="wrapper">
+				<i class="fa fa-lock" style="float:left;margin:5%"></i>
+				<input type="password" placeholder="Password" name="password" data-toggle="password" class="form-control" required/>
+			</div>
+			<br>
+
+			<div>
+				<input type="submit" value="Log In"/>
+			</div>
+			<div>
+				<a href="/signup" style="float:left;font-family:'Bangers';color:#00d3ff;font-size:20px;">Register as New User</a>
+				<a href="/forgotten" style="float:right;font-family:'Bangers';color:#00d3ff;font-size:20px;">Lost Your Password?</a>
+			</div>
+		</form>
+	</section>
+</div>
+
+</body>
+</html>

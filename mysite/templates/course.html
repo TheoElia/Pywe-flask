@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8/utf-8mb4">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='/images/IMG-20180227-WA0019.jpg') }}">
+            <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Magra' rel='stylesheet'>
+    <title>PythonwithEllie | Course Page</title>
+
+<style>
+button.accordion { background-color: steelblue; color: white; cursor: pointer; padding: 15px; width: 100%; border: none; text-align: left; outline: none; font-size: 100%; transition: 0.4s; }
+button.accordion.active, button.accordion:hover { background-color: steelblue; }
+button.accordion:after {
+/* Unicode character for "plus" sign (+) is '\02795' */
+content: '\02795'; font-size: 13px; color:steelblue; float: right; margin-left: 2px;}
+button.accordion.active:after {
+/* Unicode character for "minus" sign (-) is '\2796' */
+content: "\2796";color:White;}
+div.panel { padding: 8px 8px; background-color: white; max-height: 0; overflow: hidden; transition: 0.6s ease-in-out; opacity: 0;}
+div.panel.show { opacity: 1; max-height:100%;max-width:device-width; }
+            body{max-height:100%;background:url("/static/images/Logo maker by roshi310.png") top no-repeat;background-color:#DCDCDC;border:2px solid steelblue;
+            padding:8px 8px;margin:5px;color:#2c79b4;
+            font-family:"Times New Roman", Times, serif;height:100%;}
+code{color:green;}
+div{text-align:center;}
+            li{float:bottom;}
+            li a {display:block;color:#2c79b4; padding:5px 5px 5px 5px;text-decoration:none;text-align:center;font-style:bold;font-size:100%;margin-left:55%;margin:5%;}
+
+            li a:hover:not(.active){background-color:#2c79b4;color:#e1cd24;margin-left:55%;margin:5%;}
+            ul{list-style-type:none;margin:5%;padding:5px 5px;overflow:hidden;}
+            .sidenav { height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color:white;font-family:'Bangers';
+            background:url("/static/images/Logo maker by roshi310.png")top left no-repeat;overflow-x: hidden; transition: 0.5s; padding-top: 60px; opacity:0.9;}
+.sidenav a { padding: 8px 8px 8px 32px; text-decoration: bold; font-size: 25px; color: black; display: block; transition: 0.3s }
+.sidenav a:hover, .offcanvas a:focus{ color:blue; }
+.sidenav
+.closebtn { position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px; }
+@media screen and (max-height: 450px){
+    .sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;} }
+
+.chip { display: inline-block; padding: 0 25px; height: 50px; font-size: 16px;
+line-height: 50px; border-radius: 25px; background-color: steelblue; color:white;}
+.chip img { float: left; margin: 0 10px 0 -25px; height: 50px; width: 50px; border-radius: 50%; }
+</style>
+
+</head>
+
+     <div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<a href="/">Home</a>
+<a href="#">Tricks</a>
+<a href="/course">Course</a>
+<a href="#">Contact</a>
+{% if current_user.is_authenticated %}
+<a href="{{ url_for('logout') }}">Log out</a>
+{% else %}
+<a href="{{ url_for('signup') }}">Register</a>
+{% endif %}
+ </div>
+ <span style="font-size:20px;cursor: pointer"onclick="openNav()">☰ Menu
+</span>
+<script> /* Set the width of the side navigation to 250px */
+function openNav() { document.getElementById("mySidenav") .style.width="250px"; }
+function closeNav() { document.getElementById("mySidenav") .style.width = "0"; }
+
+</script>
+<body>
+
+    {% if success %}
+<div>
+    {{success}}
+
+</div>
+{% endif %}
+
+    {% if current_user.is_authenticated %}
+<nav>
+                <div class="chip" style="float:right;">
+<img src="uploads/{{image}}" alt="User" width="96" height="96">{{User}}
+</div>
+</nav>
+<br>
+
+<center><p>Click on Topics below to view them</p></center>
+
+<button class="accordion">Introduction
+</button>
+<div class="panel" style="font-size:100%;">
+<p>Hi, I'm Theophilus E. Nutifafa and welcome to <b style="color:red;">Python</b><b style="color:#e1cd24;">with</b><b style="color:green;">Ellie.</b><br>
+You are about to begin a journey with Python, an endless learning process.<br>
+Python is a beautiful programming language to learn, it has an easy-to-understand syntax as
+it's syntax is almost English and less lines of codes compared to other languages can accomplish
+great tasks. You might already know some of the things you can accomplish using Python but let me go over some<br>
+<ul>
+    <li>Making simple and complex calculators</li>
+    <li>Making beautiful graphs as a way of visualising data</li>
+    <li>Building websites (This Website is an example)</li>
+    <li>Advanced Python can achieve a lot more, just anything you can think of.</li>
+</ul>
+In this course, as we go through each topic, you will see how programming is related to our daily lives
+and is used to solve simple daily problems.
+<br>Once again, Welcome to <b style="color:red;">Python</b><b style="color:#e1cd24;">with</b><b style="color:green; ">Ellie</b>, feel free to go through the course.I promise, you will soon love Python.<br>
+Happy Pythoning.😊
+</p>
+</div>
+
+<button class="accordion">Setting up Python
+</button>
+<div class="panel" style="font-size:100%;">
+<p>How to get Python on your device<hr>
+If you dont want to go through all the hustle of installation processes (it's quite easy though)
+You can visit this site <a href="www.pythonanywhere.com">pythonanywhere</a> and do all your coding online.
+However, if you still want to install everything on your device then let's go:<br>
+Visit <a href="www.python.org">Python's Official website</a> to downlaod the python version of your choice.<br>
+There is currently Python 2.7 and Python 3.6, you can download any of them.
+<br>
+The most up-to-date and current source code,
+binaries, documentation, news, etc. is available at the official website of Python:
+Python Official Website :<a href="http://www.python.org/">Python.org</a> You can download Python documentation from the following site. <br>The documentation is
+available in HTML, PDF and PostScript formats.
+Python Documentation Website :<a href="www.python.org/doc/">Python doc</a> <br>
+Install Python:<hr>
+Python distribution is available for a wide variety
+of platforms. You need to download
+only the binary code applicable for your
+platform and install Python. If the binary code for your
+platform is not available, you need a C compiler
+to compile the source code manually. Compiling the source code offers more
+flexibility in terms of choice of features that you require in
+your installation.
+<br>Here is a quick overview of installing
+Python on various platforms:
+Unix & Linux Installation:<hr>
+Here are the simple steps to install Python on Unix/Linux machine.
+Open a Web browser and go to http://www.python.org/download/ Follow the link to download zipped
+source code available forUnix/Linux. Download and extract files.
+Editing the Modules/Setup file if you want to customize some options. run ./configure
+script make make install This will install python in a standard
+location /usr/local/bin and its libraries are installed in /usr/local/lib/pythonXX where XX is
+the version of Python that you are using. Windows Installation:
+<br>Here are the steps to install Python on Windows machine.<hr>
+Open a Web browser and go to http://www.python.org/download/
+Follow the link for the Windows installer python-XYZ.msi file where XYZ is the version you are going to install.
+To use this installer python-XYZ.msi, the Windows system must support Microsoft Installer 2.0. Just save the
+installer file to your local machine and then run it to find out if your machine
+supports MSI. Run the downloaded file by double-clicking it in Windows Explorer. This brings up the Python install
+wizard, which is really easy to use. Just accept the default settings, wait until the
+install isfinished, and you're ready to roll! Macintosh Installation: Recent Macs come
+with Python installed, but it may be several years out of date. See http:<a href="//www.python.org/download/mac/">Mac for Python</a> for instructions on
+getting the current version along with extra tools to support development on
+the Mac. For older Mac OS's before Mac OS X 10.3 (released in 2003), MacPython is
+available." Jack Jansen maintains it and you can have full accessto the entire documentation at
+his Web site - JackJansen Website :http://www.cwi.nl/~jack/macpython.html Just go to this link and you will find
+complete installation detail for Mac OS installation. Setting up PATH: Programs and other executable
+files can live in many directories, so operating systems provide a search path that lists the
+directories that the OS searches for executables. The path is stored in an
+environment variable, which is a named string maintained by the operating system.<br>
+These variables contain information available to the command shell and
+other programs. The path variable is named PATH in Unix or Path in Windows (Unix is case-sensitive; Windows is not).
+In Mac OS, the installer handles the path details.
+To invoke the Python interpreter from any particular directory, you must add the Python directory to your path. <br>Setting path at Unix/Linux:<hr>
+To add the Python directory to the path for a particular session in Unix: In the csh shell: type setenv PATH <code>"$PATH:/usr/local/bin/python"</code>
+and press Enter. In the bash shell (Linux): type export <code>PATH="$PATH:/usr/local/bin/python"</code>
+and press Enter.
+In the sh or ksh shell: type <code>PATH="$PATH:/usr/local/bin/python"</code> and press Enter.<br> Note: /usr/local/bin/python is the path of the
+Python directory Setting path at Windows:
+To add the Python directory to the path for a particular session in Windows:
+At the command prompt : type path %path%;C:\Python and press Enter. Note: C:\Python is
+the path of the Python directory Setting up Python on your Android Visit Google play store and download qpython
+<hr>
+QPython is a script engine running on android devices like phone or tablet, It embeds the Python interpreter, console, editor, SL4A Library for Android,
+which can make your android device run Python http://qpython.com/privacy.html
+<br>Our First Python Program<hr>
+The Python language has many similarities to Perl, C and Java. However, there are some definite differences between the languages.
+This is to quickly get you up to speed on the syntax that is expected in Python.
+
+First Python Program:<br>
+
+Interactive Mode Programming:<hr>
+
+Invoking the interpreter without passing a script file as a parameter brings up the following prompt:
+<code>
+$ python Python 2.4.3 (#1, Nov 11 2010, 13:34:43) [GCC 4.1.2 20080704 (Red Hat 4.1.2-48)] on linux2 Type "help", "copyright", "credits" or "license" for more information. >>>
+
+Type the following text to the right of the Python prompt and press the Enter key:
+
+<br>>>> print "Hello, Python!";</code>
+
+If you are running new version of Python(3.6), then you would need to use print statement with parenthesis like <code>print ("Hello, Python!");.</code>
+<br>
+<code>
+Hello, Python!
+</code>
+Congratulations, you are now a Python programmer.
+
+<br> <b style="color:blue;">References: http://qpython.com/privacy.html</b>
+</p>
+</div>
+
+<button class="accordion">Data Types</button>
+<div class="panel"
+<p style="height:100%;color:steelblue;font-size:100%;">
+Data Types in Python.
+As a human, you are able to differentiate sentences from numbers, phrases from sentences and even decimal numbers from whole numbers.
+Programming languages have something like that, these set of values that mean something different depending on how it is written are called Data types. Not a formal definition.
+So Python recognises the following data types:
+<ul>
+<li><a href="/datatypes">Strings</a></li>
+<li><a href="/datatypes">Numbers(Integers and Floats)</a></li>
+<li><a href="#">Lists</a></li>
+<li><a href="#">Boolean Values</a></li>
+
+<li><a href="#">Tuples</a></li>
+<li><a href="#">Dictionaries</a></li>
+</ul>
+
+
+<br>
+</p>
+
+</div>
+
+<button class="accordion">Variables/Identifiers</button>
+<div class="panel" style="font-size:100%;">
+<p style="height:100%;color:steelblue;font-size:100%;">
+You have a name,  right?. Well I have a name too,
+our names are used to identify us in some way.
+In fact, on some of your official documents, the most important thing
+may be your name and misspelling or disarranging
+your name can greatly affect you, so, learn to write your name right.
+In Python, we can give names to our data types and whenever
+we need that particular data type with it's values
+we simply call it by name.
+Python is case sensitive so misspelling the name or
+using capital letters where it was not will cause you a Name error.
+I mean,  <mark>Name</mark> is totally different from <mark>name</mark>.
+<ul style="font-size:100%">
+<li><a href="#">Python's reserved Keywords</a></li>
+
+<li><a href="#">Variable Naming Rules</a></li>
+<li><a href="#">Other variable stuff</a></li>
+
+</ul>
+
+</p>
+</div>
+<button class="accordion">Taking Inputs
+</button>
+<div class="panel" style="font-size:100%">
+<p style="height:100%;font-size:100%;">Taking input from a user<hr>
+When you write an application, one way or the other, users will have to interact with your application by entering a certain form of data and then your application processes the data and returns a result.
+How do we allow a user to input data so that we can process?<br>
+In Python 2 (there is a slight difference in Python 3, it makes use of input, not raw_input...), taking an input from the user is done using:
+<br>
+<code>raw_input("prompt")</code>
+<br>This means that the input the user enters will be considered a string by Python even if he enters numbers.<br>
+We can assign a variable to this input by equating a variable name to the code like this:
+<br><code>User = raw_input ("Type anything:")</code>
+So whatever the user types will now be stored in the variable <code>User</code>.
+The string in the bracket after <code>raw_input</code> is just the prompt you want to give the user: a little information that tells the user what to type.
+You can then manipulate what the user types and return information if needed.
+Since raw_input converts whatever the user types into a string, you can convert it to the data type you want by applying the data type to the user input like this:
+This is to convert what the user types into an integer
+<br>
+<code>int(User)</code><br>
+We can then assign the result to another variable or the same variable which will mean we have updated the variable.
+<br>
+<code>User = int(User)</code>
+The same way, you could apply a float too:
+<br>
+<code>User = float(User)</code><br>
+For now we will just greet a user by name.
+To ask the user to enter his/her name:<br>
+<code>Username = raw_input("Enter your name:")</code><br>
+Now let's greet the user:<br>
+<code>
+print ("Hello ",Username)
+</code>
+
+
+</p>
+</div>
+
+
+{% else %}
+<div>
+    <hr>
+{{error}}<a href='/login'>login</a> to have access to the course.
+</div>
+{% endif %}
+
+<hr style="background-color:#DCDCDC;">
+
+            {% if current_user.is_authenticated %}
+                <div class="row">
+
+
+                    <div class="container" style="background-color:white;border:2px solid steelblue;padding:16px 16px;">
+            {% for comment in comments %}
+                <div class="row" style="margin-bottom: 1ex">
+                    <div style="padding:8px 8px;font-size:100%;">
+                        {{ comment.content }}
+                    </div>
+                    <div>
+                        <small style="font-size:75%;color:steelblue;padding:8px 8px;">
+
+                            {% if comment.posted %}
+                                {{ comment.posted.strftime("%A, %d %B %Y at %H:%M") }}
+                            {% else %}
+                                at an unknown time
+                            {% endif %}
+                            by
+                            {% if comment.commenter %}
+                                {{ comment.commenter.username }}
+                            {% else %}
+                                anonymous
+                            {% endif %}
+                        </small>
+
+                        {% endfor %}
+
+</div>
+
+                    <br>
+                    <center>
+                    <div>
+                    <form action="/course" method="post">
+                        <textarea name="contents" placeholder="Enter a comment" class="form-control" style="padding:8px 8px;width:85%;font-size:150%;"></textarea>
+                        <hr>
+                        <input type="submit" style="background-color:#2c79b4;color:#e1cd24;" class="btn btn-success" value="Post comment" required>
+                    </form></center>
+                </div>
+            {% endif %}
+
+                    </div>
+
+                </div>
+<hr>
+<center>
+Advert:
+<a href="https://www.thesitewizard.com/revenue/google-adsense.shtml" target="_top">
+    How to Add Google Advertisements (Google AdSense) to Your Blog or Website</a>
+    </center>
+
+
+        </div><!-- /.container -->
+
+
+
+
+
+
+
+
+
+<script> var acc = document .getElementsByClassName("accordion");
+var i; for (i = 0; i < acc.length; i++)
+{ acc[i].onclick = function(){ this.classList.toggle("active");
+this.nextElementSibling.classList .toggle("show"); } }
+</script>
+
+
+
+</body>
+<footer style="padding:5px 5px;background-color:#2c79b4;color:#e1cd24;text-align:center;bottom:0;">
+        ©All rights reserved by PythonwithEllie 2018
+    </footer>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
