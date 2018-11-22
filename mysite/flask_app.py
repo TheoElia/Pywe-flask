@@ -55,10 +55,10 @@ login_manager.init_app(app)
 
 
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="Learn",
-    password="independence",
-    hostname="Learn.mysql.pythonanywhere-services.com",
-    databasename="Learn$Users",
+    username="username",
+    password="password",
+    hostname="Username.mysql.pythonanywhere-services.com",
+    databasename="db_name",
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
@@ -203,7 +203,7 @@ def store():
     newfile.write(all_users)
     newfile.close()
 
-
+store()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -442,7 +442,7 @@ def signup():
 
 
 
-                yag = yagmail.SMTP("pythonwithellie@gmail.com","learnpython22")
+                yag = yagmail.SMTP("email","password")
 
 
                 Token=str(time.time()).replace(".","")
