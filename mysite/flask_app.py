@@ -78,11 +78,9 @@ login_manager.init_app(app)
     #password = PasswordField("Password",[validators.DataRequired()])
     #submit = SubmitField('Register')
 
-configu = {  "apiKey": "AIzaSyAWhEZkholpo9TEDp2o12REdu8StRFqHSc",  "authDomain": "pywe-92968.firebaseapp.com",  "databaseURL": "https://pywe-92968.firebaseio.com",  "storageBucket": "pywe-92968.appspot.com",  "serviceAccount": "/home/Learn/mysite/uploads/pywe-208616-c2124a16842b.json" }
-firebase = pyrebase.initialize_app(configu)
 
-auth = firebase.auth()
-fdb = firebase.database()
+#auth = firebase.auth()
+#fdb = firebase.database()
 #store = firebase.storage()
 #authenticate a user
 #user = auth.sign_in_with_email_and_password("joe@gmail.com", "chaii222")
